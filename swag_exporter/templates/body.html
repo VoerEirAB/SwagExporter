@@ -1,0 +1,62 @@
+<body>
+    <div class="cover-headings">
+        <h1>Introduction</h1>
+        {{ info.title }}
+        {{ info.description }}
+    </div>
+    <div class="page-break"></div>
+    <div>
+    <div class="cover-headings">
+        <h1>Index</h1>
+    </div>
+        <h2>1. Security</h2>
+        <div class="div-container-margin">
+                <table>
+                {% for key, value in securityDefinitions.iteritems() %}
+                    <tr>
+                        <td>{{ key }}</td>
+                        <td>{{ value }}</td>
+                    </tr>
+                {% endfor %}
+                </table>
+        </div>
+        <h2><a href="#path"> 2 Paths </a></h2>
+        {% for url, path in paths.iteritems() %}
+            {% set outer_loop_index = loop.index %}
+            <ul>
+                <li><span>2.{{ outer_loop_index }} {{ url }} </span>
+                    <ul>
+                        {% for key, value in path.iteritems() %}
+                        <li>
+                            <a href="#{{ key }}_{{ outer_loop_index }}_{{ loop.index }}">
+                                    <span>
+                                        <b>2.{{ outer_loop_index }}.{{ loop.index }}</b> {{ key }}
+                                    </span>
+                            </a>
+                        </li>
+            {% endfor %}
+                    </ul>
+
+                </li>
+            </ul>
+        {% endfor %}
+        <div class="page-break"></div>
+    </div>
+    <div class="page-break"></div>
+    <h2>1.Security</h2>
+    <div class="div-container-margin">
+        <table class='table-margin'>
+            <tr>
+                <td colspan='2'>
+                    <h3>1.1. APIKeyHeader (header)</h3>
+                </td>
+            </tr>
+            <tr>
+                <td>Name</td>
+                <td>token</td>
+            </tr>
+        </table>
+    </div>
+    <div class="page-break"></div>
+   {% include "path.html" %}
+</body>

@@ -1,0 +1,82 @@
+<h2><a name="path" >2. Paths </a></h2>
+    <div class="container">
+        {% for url, path in paths.iteritems() %}
+         {% set outer_loop_index = loop.index %}
+         {% for key, value in path.iteritems() %}
+            <div class="path">
+                <a name="{{ key }}_{{ outer_loop_index }}_{{ loop.index }}">
+                    <div class=" get">
+                        <code class="uppercase">
+                            <span>2.{{ outer_loop_index }}.{{ loop.index }} {{ key }} </span>&nbsp;&nbsp;{{ url }}
+                        </code>
+                    </div>
+                </a>
+                <table class='table-margin'>
+                    <tr>
+                        <td class='width-small'><b>Summary</b></td>
+                        <td class='width-large'>{{ value.summary }}</td>
+                    </tr>
+                    <tr style=''>
+                        <td class='width-small'><b>Description</b></td>
+                        <td class='width-large'>{{ value.description }}</td>
+                    </tr>
+                    <tr>
+                        <td class='width-small'><b>Operation Id</b></td>
+                        <td class='width-large'>{{ value.operationId }}</td>
+                    </tr>
+                    <tr style="col-dark">
+                        <td class='width-small'><b>Produces</b></td>
+                        <td class='width-large'>application/json</td>
+                    </tr>
+
+                    <tr>
+                        <td class='width-small'><b>Parameters</b></td>
+                        <td class='width-large margin-padding-clear-left'>
+                            {% if value.parameters|length > 0 %}
+                                <table class='table-margin'>
+                                    <tr>
+                                        <td class='width-small'><b>Name</b></td>
+                                        <td class='width-large'><b>Description</b></td>
+                                    </tr>
+                                        {% for parameter in value.parameters %}
+                                        <tr>
+                                            <td class='width-small'>{{ parameter.name }}</td>
+                                            <td class='width-large'>{{ parameter.description }}</td>
+                                        </tr>
+                                        {% endfor %}
+
+                                </table>
+                             {% else %}
+                                No Parameters
+                             {% endif %}
+                        </td>
+                    </tr>
+                    {% if value.parameters|length > 0 %}
+                    <tr>
+                        <td class='width-small'><b>Tags</b></td>
+                        <td class='width-large'>{% for tag in value.tags %} {{ tag }} {% endfor %}</td>
+                    </tr>
+                    {% endif %}
+                    <tr>
+                        <td class='width-small'><b>Responses</b></td>
+                        <td class='width-large'>
+                            <table class='table-margin'>
+                                <tr>
+                                    <td class='width-small'><b>Code</b></td>
+                                    <td class='width-large'><b>Description</b></td>
+                                </tr>
+                                {% for key, response in value.responses.iteritems() %}
+                                <tr>
+                                    <td class='width-small'>{{ key }}</td>
+                                    <td class='width-large'>{{ response.description }}</td>
+                                </tr>
+                                {% endfor %}
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            {% endfor %}
+        {% endfor %}
+
+    </div>
