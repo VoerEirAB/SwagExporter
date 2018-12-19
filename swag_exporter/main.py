@@ -67,11 +67,11 @@ class SpecExporter:
         )
 
     def export_to_pdf(self, path):
-        path = os.path.join(path, self.export_file_name + ExportFormat.PDF)
+        path = os.path.join(path, self.export_file_name + '.' + ExportFormat.PDF.value)
         pdfkit.from_string(self.render(), path)
 
     def export_to_html(self, path):
-        path = os.path.join(path, self.export_file_name + ExportFormat.HTML)
+        path = os.path.join(path, self.export_file_name + '.' + ExportFormat.HTML.value)
         with open(path, 'w') as file:
             file.write(self.render())
 
@@ -80,7 +80,9 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('-s', '--spec', help='Swagger Spec json file path', required=True)
     parser.add_argument('-o', '--output', help='output path', required=True)
-    parser.add_argument('-e', '--export-type', help='Export format html or pdf', default=ExportFormat.PDF, type=ExportFormat, required=False)
+    parser.add_argument('-e', '--export-type', help='Export format html or pdf',
+                        default=ExportFormat.PDF.value,
+                        required=False)
 
     args = parser.parse_args()
 
@@ -91,9 +93,9 @@ def main():
     with open(args.spec, 'r') as file:
         spec_json = file.read()
         spec = SpecExporter(spec_json=spec_json)
-        if args.export_type == ExportFormat.PDF:
+        if args.export_type == ExportFormat.PDF.value:
             spec.export_to_pdf(args.output)
-        elif args.export_type == ExportFormat.HTML:
+        elif args.export_type == ExportFormat.HTML.value:
             spec.export_to_html(args.output)
         else:
             raise ValueError("Invalid export type")
