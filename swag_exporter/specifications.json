@@ -1,0 +1,6833 @@
+{
+  "definitions": {
+    "rec_username": {
+      "properties": {
+        "username": {
+          "default": "steve-harris", 
+          "description": "The name of the user", 
+          "type": "string"
+        }
+      }
+    }
+  }, 
+  "info": {
+    "description": "powered by Flasgger", 
+    "termsOfService": "/tos", 
+    "title": "A swagger API", 
+    "version": "0.0.1"
+  }, 
+  "paths": {
+    "/api/v1/compare": {
+      "post": {
+        "description": "To queue a test suite for execution<br/>  ", 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "Compare Rally reports", 
+        "tags": [
+          "Reports"
+        ]
+      }
+    }, 
+    "/api/v1/context/{uuid}": {
+      "get": {
+        "description": "To get a context's details<br/>  ", 
+        "parameters": [
+          {
+            "allowMultiple": "False,", 
+            "dataType": "string,", 
+            "description": "Object UUID to return,", 
+            "in": "body", 
+            "name": "uuid,", 
+            "paramType": "path", 
+            "required": "True,", 
+            "type": "string,"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "Get a context", 
+        "tags": [
+          "context"
+        ]
+      }, 
+      "put": {
+        "description": "To update a context's detail<br/>  ", 
+        "parameters": [
+          {
+            "allowMultiple": "False,", 
+            "dataType": "String,", 
+            "description": "UUID of the object to return,", 
+            "in": "body", 
+            "name": "uuid,", 
+            "paramType": "body", 
+            "required": "True,", 
+            "type": "String,"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "Update a context's detail", 
+        "tags": [
+          "context"
+        ]
+      }
+    }, 
+    "/api/v1/contexts": {
+      "get": {
+        "description": "To get a list of contexts<br/>  ", 
+        "parameters": [
+          {
+            "allowMultiple": "True,", 
+            "dataType": "String,", 
+            "description": "Name of the model's field to filter by,", 
+            "in": "body", 
+            "name": "filter,", 
+            "paramType": "query", 
+            "required": "False,", 
+            "type": "String,"
+          }, 
+          {
+            "allowMultiple": "True,", 
+            "dataType": "String,", 
+            "description": "Value of the filter field to look for,", 
+            "in": "body", 
+            "name": "filter_value,", 
+            "paramType": "query", 
+            "required": "False,", 
+            "type": "String,"
+          }, 
+          {
+            "allowMultiple": "False,", 
+            "dataType": "asc or desc,", 
+            "description": "Direction of sorting object in result json,", 
+            "in": "body", 
+            "name": "sort_dir,", 
+            "paramType": "query", 
+            "required": "False,", 
+            "type": "asc or desc,"
+          }, 
+          {
+            "allowMultiple": "False,", 
+            "dataType": "Integer,", 
+            "description": "Page number if paging is enabled,", 
+            "in": "body", 
+            "name": "page,", 
+            "paramType": "query", 
+            "required": "False,", 
+            "type": "Integer,"
+          }, 
+          {
+            "allowMultiple": "False,", 
+            "dataType": "String,", 
+            "description": "Number of results to return with one request,", 
+            "in": "body", 
+            "name": "page_size,", 
+            "paramType": "query", 
+            "required": "False,", 
+            "type": "String,"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "Get contexts", 
+        "tags": [
+          "context"
+        ]
+      }
+    }, 
+    "/api/v1/dashboard/{environment_uuid}": {
+      "get": {
+        "description": "Create dashboard of an environment<br/>  ", 
+        "parameters": [
+          {
+            "allowMultiple": "False,", 
+            "dataType": "string,", 
+            "description": "Object uuid of environment to create dashboard object for,", 
+            "in": "body", 
+            "name": "uuid,", 
+            "paramType": "path", 
+            "required": "True,", 
+            "type": "string,"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "Get dashboard", 
+        "tags": [
+          "dashboard"
+        ]
+      }
+    }, 
+    "/api/v1/dashboard/{environment_uuid}/{test_code}/{context_code}": {
+      "get": {
+        "description": "Create dashboard of an environment<br/>  ", 
+        "parameters": [
+          {
+            "allowMultiple": "False,", 
+            "dataType": "string,", 
+            "description": "Object uuid of environment to create dashboard object for,", 
+            "in": "body", 
+            "name": "uuid,", 
+            "paramType": "path", 
+            "required": "True,", 
+            "type": "string,"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "Get dashboard", 
+        "tags": [
+          "dashboard"
+        ]
+      }
+    }, 
+    "/api/v1/dump_operation/{uuid}": {
+      "delete": {
+        "parameters": [
+          {
+            "allowMultiple": false, 
+            "description": "Object UUID to delete", 
+            "in": "path", 
+            "name": "uuid", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "---", 
+        "tags": [
+          "endpoint"
+        ]
+      }, 
+      "get": {
+        "parameters": [
+          {
+            "allowMultiple": false, 
+            "description": "Object UUID to return", 
+            "in": "path", 
+            "name": "uuid", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "---", 
+        "tags": [
+          "endpoint"
+        ]
+      }
+    }, 
+    "/api/v1/dump_operations": {
+      "get": {
+        "parameters": [
+          {
+            "allowMultiple": true, 
+            "description": "Name of the model's field to filter by", 
+            "in": "query", 
+            "name": "filter", 
+            "required": false, 
+            "type": "String"
+          }, 
+          {
+            "allowMultiple": true, 
+            "description": "Value of the filter field to look for", 
+            "in": "query", 
+            "name": "filter_value", 
+            "required": false, 
+            "type": "String"
+          }, 
+          {
+            "allowMultiple": false, 
+            "description": "Direction of sorting object in result json", 
+            "in": "query", 
+            "name": "sort_dir", 
+            "required": false, 
+            "type": "asc or desc"
+          }, 
+          {
+            "allowMultiple": false, 
+            "description": "Page number if paging is enabled", 
+            "in": "query", 
+            "name": "page", 
+            "required": false, 
+            "type": "Integer"
+          }, 
+          {
+            "allowMultiple": false, 
+            "description": "Number of results to return with one request", 
+            "in": "query", 
+            "name": "page_size", 
+            "required": false, 
+            "type": "String"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "---", 
+        "tags": [
+          "imported test suite"
+        ]
+      }, 
+      "post": {
+        "parameters": [
+          {
+            "allowMultiple": false, 
+            "description": "Object UUID to return", 
+            "in": "path", 
+            "name": "uuid", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "allowMultiple": false, 
+            "description": "JSON containing fields to update", 
+            "in": "body", 
+            "name": "json", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "---", 
+        "tags": [
+          "endpoint"
+        ]
+      }
+    }, 
+    "/api/v1/endpoint/{uuid}": {
+      "delete": {
+        "description": "To delete an endpoint<br/>  ", 
+        "parameters": [
+          {
+            "allowMultiple": "False,", 
+            "dataType": "string,", 
+            "description": "Object UUID to return,", 
+            "in": "path,", 
+            "name": "uuid,", 
+            "paramType": "path", 
+            "required": "True,", 
+            "type": "string,"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "Delete an endpoint", 
+        "tags": [
+          "endpoint"
+        ]
+      }, 
+      "get": {
+        "description": "To get a endpoint details<br/>  ", 
+        "parameters": [
+          {
+            "allowMultiple": "False,", 
+            "dataType": "string,", 
+            "description": "Object UUID to return,", 
+            "in": "header", 
+            "name": "uuid,", 
+            "paramType": "header", 
+            "required": "True,", 
+            "type": "string,"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "Get an endpoint", 
+        "tags": [
+          "endpoint"
+        ]
+      }, 
+      "post": {
+        "description": "To create a new endpoint<br/>  ", 
+        "parameters": [
+          {
+            "allowMultiple": "False,", 
+            "dataType": "string,", 
+            "description": "Object UUID to return,", 
+            "in": "path,", 
+            "name": "uuid,", 
+            "paramType": "path", 
+            "required": "True,", 
+            "type": "string,"
+          }, 
+          {
+            "allowMultiple": "False,", 
+            "dataType": "string,", 
+            "description": "UUID of relation to add in object,", 
+            "in": "path,", 
+            "name": "relation_uuid,", 
+            "paramType": "path", 
+            "required": "False,", 
+            "type": "string,"
+          }, 
+          {
+            "allowMultiple": "False,", 
+            "dataType": "string,", 
+            "description": "Name of relation to add in object,", 
+            "in": "path,", 
+            "name": "relation,", 
+            "paramType": "path", 
+            "required": "False,", 
+            "type": "string,"
+          }, 
+          {
+            "allowMultiple": "False,", 
+            "dataType": "string,", 
+            "description": "JSON containing fields to update,", 
+            "in": "body,", 
+            "name": "json,", 
+            "paramType": "body", 
+            "required": "True,", 
+            "type": "string,"
+          }, 
+          {
+            "allowMultiple": "False,", 
+            "dataType": "string,", 
+            "description": "Name of the relation to include in output model,", 
+            "in": "query,", 
+            "name": "include_rel,", 
+            "paramType": "query", 
+            "required": "False,", 
+            "type": "string,"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "Create an endpoint", 
+        "tags": [
+          "endpoint"
+        ]
+      }, 
+      "put": {
+        "description": "Update an endpoint's details<br/>  ", 
+        "parameters": [
+          {
+            "allowMultiple": "False,", 
+            "dataType": "string,", 
+            "description": "Object UUID to return,", 
+            "in": "body", 
+            "name": "uuid,", 
+            "paramType": "path", 
+            "required": "True,", 
+            "type": "string,"
+          }, 
+          {
+            "allowMultiple": "False,", 
+            "dataType": "string,", 
+            "description": "JSON containing fields to update,", 
+            "in": "body", 
+            "name": "json,", 
+            "paramType": "body", 
+            "required": "True,", 
+            "type": "string,"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "Update an endpoint", 
+        "tags": [
+          "endpoint"
+        ]
+      }
+    }, 
+    "/api/v1/endpoint/{uuid}/action": {
+      "delete": {
+        "description": "To delete an endpoint<br/>  ", 
+        "parameters": [
+          {
+            "allowMultiple": "False,", 
+            "dataType": "string,", 
+            "description": "Object UUID to return,", 
+            "in": "path,", 
+            "name": "uuid,", 
+            "paramType": "path", 
+            "required": "True,", 
+            "type": "string,"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "Delete an endpoint", 
+        "tags": [
+          "endpoint"
+        ]
+      }, 
+      "get": {
+        "description": "To get a endpoint details<br/>  ", 
+        "parameters": [
+          {
+            "allowMultiple": "False,", 
+            "dataType": "string,", 
+            "description": "Object UUID to return,", 
+            "in": "header", 
+            "name": "uuid,", 
+            "paramType": "header", 
+            "required": "True,", 
+            "type": "string,"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "Get an endpoint", 
+        "tags": [
+          "endpoint"
+        ]
+      }, 
+      "post": {
+        "description": "To create a new endpoint<br/>  ", 
+        "parameters": [
+          {
+            "allowMultiple": "False,", 
+            "dataType": "string,", 
+            "description": "Object UUID to return,", 
+            "in": "path,", 
+            "name": "uuid,", 
+            "paramType": "path", 
+            "required": "True,", 
+            "type": "string,"
+          }, 
+          {
+            "allowMultiple": "False,", 
+            "dataType": "string,", 
+            "description": "UUID of relation to add in object,", 
+            "in": "path,", 
+            "name": "relation_uuid,", 
+            "paramType": "path", 
+            "required": "False,", 
+            "type": "string,"
+          }, 
+          {
+            "allowMultiple": "False,", 
+            "dataType": "string,", 
+            "description": "Name of relation to add in object,", 
+            "in": "path,", 
+            "name": "relation,", 
+            "paramType": "path", 
+            "required": "False,", 
+            "type": "string,"
+          }, 
+          {
+            "allowMultiple": "False,", 
+            "dataType": "string,", 
+            "description": "JSON containing fields to update,", 
+            "in": "body,", 
+            "name": "json,", 
+            "paramType": "body", 
+            "required": "True,", 
+            "type": "string,"
+          }, 
+          {
+            "allowMultiple": "False,", 
+            "dataType": "string,", 
+            "description": "Name of the relation to include in output model,", 
+            "in": "query,", 
+            "name": "include_rel,", 
+            "paramType": "query", 
+            "required": "False,", 
+            "type": "string,"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "Create an endpoint", 
+        "tags": [
+          "endpoint"
+        ]
+      }, 
+      "put": {
+        "description": "Update an endpoint's details<br/>  ", 
+        "parameters": [
+          {
+            "allowMultiple": "False,", 
+            "dataType": "string,", 
+            "description": "Object UUID to return,", 
+            "in": "body", 
+            "name": "uuid,", 
+            "paramType": "path", 
+            "required": "True,", 
+            "type": "string,"
+          }, 
+          {
+            "allowMultiple": "False,", 
+            "dataType": "string,", 
+            "description": "JSON containing fields to update,", 
+            "in": "body", 
+            "name": "json,", 
+            "paramType": "body", 
+            "required": "True,", 
+            "type": "string,"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "Update an endpoint", 
+        "tags": [
+          "endpoint"
+        ]
+      }
+    }, 
+    "/api/v1/endpoint/{uuid}/{relation}": {
+      "delete": {
+        "description": "To delete an endpoint<br/>  ", 
+        "parameters": [
+          {
+            "allowMultiple": "False,", 
+            "dataType": "string,", 
+            "description": "Object UUID to return,", 
+            "in": "path,", 
+            "name": "uuid,", 
+            "paramType": "path", 
+            "required": "True,", 
+            "type": "string,"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "Delete an endpoint", 
+        "tags": [
+          "endpoint"
+        ]
+      }, 
+      "get": {
+        "description": "To get a endpoint details<br/>  ", 
+        "parameters": [
+          {
+            "allowMultiple": "False,", 
+            "dataType": "string,", 
+            "description": "Object UUID to return,", 
+            "in": "header", 
+            "name": "uuid,", 
+            "paramType": "header", 
+            "required": "True,", 
+            "type": "string,"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "Get an endpoint", 
+        "tags": [
+          "endpoint"
+        ]
+      }, 
+      "post": {
+        "description": "To create a new endpoint<br/>  ", 
+        "parameters": [
+          {
+            "allowMultiple": "False,", 
+            "dataType": "string,", 
+            "description": "Object UUID to return,", 
+            "in": "path,", 
+            "name": "uuid,", 
+            "paramType": "path", 
+            "required": "True,", 
+            "type": "string,"
+          }, 
+          {
+            "allowMultiple": "False,", 
+            "dataType": "string,", 
+            "description": "UUID of relation to add in object,", 
+            "in": "path,", 
+            "name": "relation_uuid,", 
+            "paramType": "path", 
+            "required": "False,", 
+            "type": "string,"
+          }, 
+          {
+            "allowMultiple": "False,", 
+            "dataType": "string,", 
+            "description": "Name of relation to add in object,", 
+            "in": "path,", 
+            "name": "relation,", 
+            "paramType": "path", 
+            "required": "False,", 
+            "type": "string,"
+          }, 
+          {
+            "allowMultiple": "False,", 
+            "dataType": "string,", 
+            "description": "JSON containing fields to update,", 
+            "in": "body,", 
+            "name": "json,", 
+            "paramType": "body", 
+            "required": "True,", 
+            "type": "string,"
+          }, 
+          {
+            "allowMultiple": "False,", 
+            "dataType": "string,", 
+            "description": "Name of the relation to include in output model,", 
+            "in": "query,", 
+            "name": "include_rel,", 
+            "paramType": "query", 
+            "required": "False,", 
+            "type": "string,"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "Create an endpoint", 
+        "tags": [
+          "endpoint"
+        ]
+      }, 
+      "put": {
+        "description": "Update an endpoint's details<br/>  ", 
+        "parameters": [
+          {
+            "allowMultiple": "False,", 
+            "dataType": "string,", 
+            "description": "Object UUID to return,", 
+            "in": "body", 
+            "name": "uuid,", 
+            "paramType": "path", 
+            "required": "True,", 
+            "type": "string,"
+          }, 
+          {
+            "allowMultiple": "False,", 
+            "dataType": "string,", 
+            "description": "JSON containing fields to update,", 
+            "in": "body", 
+            "name": "json,", 
+            "paramType": "body", 
+            "required": "True,", 
+            "type": "string,"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "Update an endpoint", 
+        "tags": [
+          "endpoint"
+        ]
+      }
+    }, 
+    "/api/v1/endpoint/{uuid}/{relation}/{relation_id}": {
+      "delete": {
+        "description": "To delete an endpoint<br/>  ", 
+        "parameters": [
+          {
+            "allowMultiple": "False,", 
+            "dataType": "string,", 
+            "description": "Object UUID to return,", 
+            "in": "path,", 
+            "name": "uuid,", 
+            "paramType": "path", 
+            "required": "True,", 
+            "type": "string,"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "Delete an endpoint", 
+        "tags": [
+          "endpoint"
+        ]
+      }, 
+      "get": {
+        "description": "To get a endpoint details<br/>  ", 
+        "parameters": [
+          {
+            "allowMultiple": "False,", 
+            "dataType": "string,", 
+            "description": "Object UUID to return,", 
+            "in": "header", 
+            "name": "uuid,", 
+            "paramType": "header", 
+            "required": "True,", 
+            "type": "string,"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "Get an endpoint", 
+        "tags": [
+          "endpoint"
+        ]
+      }, 
+      "post": {
+        "description": "To create a new endpoint<br/>  ", 
+        "parameters": [
+          {
+            "allowMultiple": "False,", 
+            "dataType": "string,", 
+            "description": "Object UUID to return,", 
+            "in": "path,", 
+            "name": "uuid,", 
+            "paramType": "path", 
+            "required": "True,", 
+            "type": "string,"
+          }, 
+          {
+            "allowMultiple": "False,", 
+            "dataType": "string,", 
+            "description": "UUID of relation to add in object,", 
+            "in": "path,", 
+            "name": "relation_uuid,", 
+            "paramType": "path", 
+            "required": "False,", 
+            "type": "string,"
+          }, 
+          {
+            "allowMultiple": "False,", 
+            "dataType": "string,", 
+            "description": "Name of relation to add in object,", 
+            "in": "path,", 
+            "name": "relation,", 
+            "paramType": "path", 
+            "required": "False,", 
+            "type": "string,"
+          }, 
+          {
+            "allowMultiple": "False,", 
+            "dataType": "string,", 
+            "description": "JSON containing fields to update,", 
+            "in": "body,", 
+            "name": "json,", 
+            "paramType": "body", 
+            "required": "True,", 
+            "type": "string,"
+          }, 
+          {
+            "allowMultiple": "False,", 
+            "dataType": "string,", 
+            "description": "Name of the relation to include in output model,", 
+            "in": "query,", 
+            "name": "include_rel,", 
+            "paramType": "query", 
+            "required": "False,", 
+            "type": "string,"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "Create an endpoint", 
+        "tags": [
+          "endpoint"
+        ]
+      }, 
+      "put": {
+        "description": "Update an endpoint's details<br/>  ", 
+        "parameters": [
+          {
+            "allowMultiple": "False,", 
+            "dataType": "string,", 
+            "description": "Object UUID to return,", 
+            "in": "body", 
+            "name": "uuid,", 
+            "paramType": "path", 
+            "required": "True,", 
+            "type": "string,"
+          }, 
+          {
+            "allowMultiple": "False,", 
+            "dataType": "string,", 
+            "description": "JSON containing fields to update,", 
+            "in": "body", 
+            "name": "json,", 
+            "paramType": "body", 
+            "required": "True,", 
+            "type": "string,"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "Update an endpoint", 
+        "tags": [
+          "endpoint"
+        ]
+      }
+    }, 
+    "/api/v1/endpoints": {
+      "get": {
+        "description": "To get all endpoints<br/>  ", 
+        "parameters": [
+          {
+            "allowMultiple": "True,", 
+            "dataType": "string,", 
+            "description": "Name of the mode's field to filter by,", 
+            "in": "query,,", 
+            "name": "filter,", 
+            "paramType": "query", 
+            "required": "False,", 
+            "type": "string,"
+          }, 
+          {
+            "allowMultiple": "True,", 
+            "dataType": "string,", 
+            "description": "Value of the filter field to look for,", 
+            "in": "query,", 
+            "name": "filter_value,", 
+            "paramType": "query", 
+            "required": "False,", 
+            "type": "string,"
+          }, 
+          {
+            "allowMultiple": "False,", 
+            "dataType": "asc or desc,", 
+            "description": "Direction of sorting object in result json,", 
+            "in": "query,", 
+            "name": "sort_dir,", 
+            "paramType": "query", 
+            "required": "False,", 
+            "type": "asc or desc,"
+          }, 
+          {
+            "allowMultiple": "False,", 
+            "dataType": "integer,", 
+            "description": "Number of page if paging is enabled,", 
+            "in": "query,", 
+            "name": "page,", 
+            "paramType": "query", 
+            "required": "True,", 
+            "type": "string,"
+          }, 
+          {
+            "allowMultiple": "False,", 
+            "dataType": "integer,", 
+            "description": "Number of results to return with one request,", 
+            "in": "query,", 
+            "name": "page_size,", 
+            "paramType": "query", 
+            "required": "False,", 
+            "type": "integer,"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "Get endpoints", 
+        "tags": [
+          "endpoint"
+        ]
+      }, 
+      "post": {
+        "description": "To get all endpoints<br/>  ", 
+        "parameters": [
+          {
+            "allowMultiple": "False,", 
+            "dataType": "string,", 
+            "description": "Object UUID to return,", 
+            "in": "path,", 
+            "name": "uuid,", 
+            "paramType": "path", 
+            "required": "True,", 
+            "type": "string,"
+          }, 
+          {
+            "allowMultiple": "False,", 
+            "dataType": "string,", 
+            "description": "JSON containing fields to update,", 
+            "in": "body,", 
+            "name": "json,", 
+            "paramType": "query", 
+            "required": "True,", 
+            "type": "string,"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "Get endpoints", 
+        "tags": [
+          "endpoint"
+        ]
+      }
+    }, 
+    "/api/v1/environment/{uuid}": {
+      "get": {
+        "description": "To get all endpoints<br/>  ", 
+        "parameters": [
+          {
+            "allowMultiple": false, 
+            "description": "Object UUID to return,", 
+            "in": "path,", 
+            "name": "uuid,", 
+            "required": "True,", 
+            "type": "string,"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "Get endpoints", 
+        "tags": [
+          "endpoint"
+        ]
+      }, 
+      "post": {
+        "description": "Create new environment, or benchmark an environment depending on the parameters supplied.<br/>", 
+        "parameters": [
+          {
+            "allowMultiple": false, 
+            "description": "Object UUID to return", 
+            "in": "path", 
+            "name": "uuid", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "allowMultiple": false, 
+            "description": "UUID of relation to add in object", 
+            "in": "path", 
+            "name": "relation_uuid", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "allowMultiple": false, 
+            "description": "Name of relation to add in object", 
+            "in": "path", 
+            "name": "relation", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "allowMultiple": false, 
+            "description": "JSON containing fields to update", 
+            "in": "body", 
+            "name": "json", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "Post on environment", 
+        "tags": [
+          "endpoint"
+        ]
+      }, 
+      "put": {
+        "description": "Update existing environment details. User can update name, description, version of the<br/>environment.<br/>", 
+        "parameters": [
+          {
+            "allowMultiple": false, 
+            "dataType": "string", 
+            "description": "Object UUID to return", 
+            "in": "path", 
+            "name": "uuid", 
+            "paramType": "path", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "allowMultiple": false, 
+            "dataType": "string", 
+            "description": "JSON containing fields to update", 
+            "in": "body", 
+            "name": "json", 
+            "paramType": "query", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "Update environment", 
+        "tags": [
+          "endpoint"
+        ]
+      }
+    }, 
+    "/api/v1/environment/{uuid}/{relation}": {
+      "get": {
+        "description": "To get all endpoints<br/>  ", 
+        "parameters": [
+          {
+            "allowMultiple": false, 
+            "description": "Object UUID to return,", 
+            "in": "path,", 
+            "name": "uuid,", 
+            "required": "True,", 
+            "type": "string,"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "Get endpoints", 
+        "tags": [
+          "endpoint"
+        ]
+      }, 
+      "post": {
+        "description": "Create new environment, or benchmark an environment depending on the parameters supplied.<br/>", 
+        "parameters": [
+          {
+            "allowMultiple": false, 
+            "description": "Object UUID to return", 
+            "in": "path", 
+            "name": "uuid", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "allowMultiple": false, 
+            "description": "UUID of relation to add in object", 
+            "in": "path", 
+            "name": "relation_uuid", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "allowMultiple": false, 
+            "description": "Name of relation to add in object", 
+            "in": "path", 
+            "name": "relation", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "allowMultiple": false, 
+            "description": "JSON containing fields to update", 
+            "in": "body", 
+            "name": "json", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "Post on environment", 
+        "tags": [
+          "endpoint"
+        ]
+      }, 
+      "put": {
+        "description": "Update existing environment details. User can update name, description, version of the<br/>environment.<br/>", 
+        "parameters": [
+          {
+            "allowMultiple": false, 
+            "dataType": "string", 
+            "description": "Object UUID to return", 
+            "in": "path", 
+            "name": "uuid", 
+            "paramType": "path", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "allowMultiple": false, 
+            "dataType": "string", 
+            "description": "JSON containing fields to update", 
+            "in": "body", 
+            "name": "json", 
+            "paramType": "query", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "Update environment", 
+        "tags": [
+          "endpoint"
+        ]
+      }
+    }, 
+    "/api/v1/environment/{uuid}/{relation}/{relation_id}": {
+      "get": {
+        "description": "To get all endpoints<br/>  ", 
+        "parameters": [
+          {
+            "allowMultiple": false, 
+            "description": "Object UUID to return,", 
+            "in": "path,", 
+            "name": "uuid,", 
+            "required": "True,", 
+            "type": "string,"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "Get endpoints", 
+        "tags": [
+          "endpoint"
+        ]
+      }, 
+      "post": {
+        "description": "Create new environment, or benchmark an environment depending on the parameters supplied.<br/>", 
+        "parameters": [
+          {
+            "allowMultiple": false, 
+            "description": "Object UUID to return", 
+            "in": "path", 
+            "name": "uuid", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "allowMultiple": false, 
+            "description": "UUID of relation to add in object", 
+            "in": "path", 
+            "name": "relation_uuid", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "allowMultiple": false, 
+            "description": "Name of relation to add in object", 
+            "in": "path", 
+            "name": "relation", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "allowMultiple": false, 
+            "description": "JSON containing fields to update", 
+            "in": "body", 
+            "name": "json", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "Post on environment", 
+        "tags": [
+          "endpoint"
+        ]
+      }, 
+      "put": {
+        "description": "Update existing environment details. User can update name, description, version of the<br/>environment.<br/>", 
+        "parameters": [
+          {
+            "allowMultiple": false, 
+            "dataType": "string", 
+            "description": "Object UUID to return", 
+            "in": "path", 
+            "name": "uuid", 
+            "paramType": "path", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "allowMultiple": false, 
+            "dataType": "string", 
+            "description": "JSON containing fields to update", 
+            "in": "body", 
+            "name": "json", 
+            "paramType": "query", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "Update environment", 
+        "tags": [
+          "endpoint"
+        ]
+      }
+    }, 
+    "/api/v1/environment_properties": {
+      "get": {
+        "description": "To update properties of an environment properties<br/>", 
+        "parameters": [
+          {
+            "allowMultiple": "True,", 
+            "dataType": "String,", 
+            "description": "Name of the model's field to filter by,", 
+            "in": "body", 
+            "name": "filter,", 
+            "paramType": "query", 
+            "required": "False,", 
+            "type": "String,"
+          }, 
+          {
+            "allowMultiple": "True,", 
+            "dataType": "String,", 
+            "description": "Value of the filter field to look for,", 
+            "in": "body", 
+            "name": "filter_value,", 
+            "paramType": "query", 
+            "required": "False,", 
+            "type": "String,"
+          }, 
+          {
+            "allowMultiple": "False,", 
+            "dataType": "asc or desc,", 
+            "description": "Direction of sorting object in result json,", 
+            "in": "body", 
+            "name": "sort_dir,", 
+            "paramType": "query", 
+            "required": "False,", 
+            "type": "asc or desc,"
+          }, 
+          {
+            "allowMultiple": "False,", 
+            "dataType": "Integer,", 
+            "description": "Page number if paging is enabled,", 
+            "in": "body", 
+            "name": "page,", 
+            "paramType": "query", 
+            "required": "False,", 
+            "type": "Integer,"
+          }, 
+          {
+            "allowMultiple": "False,", 
+            "dataType": "String,", 
+            "description": "Number of results to return with one request,", 
+            "in": "body", 
+            "name": "page_size,", 
+            "paramType": "query", 
+            "required": "False,", 
+            "type": "String,"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "Update environment property", 
+        "tags": [
+          "environment property"
+        ]
+      }
+    }, 
+    "/api/v1/environment_property/{uuid}": {
+      "get": {
+        "description": "To get properties of the selected environment<br/>  ", 
+        "parameters": [
+          {
+            "allowMultiple": "False,", 
+            "dataType": "string,", 
+            "description": "Object UUID to return,", 
+            "in": "path,", 
+            "name": "uuid,", 
+            "paramType": "path", 
+            "required": "True,", 
+            "type": "string,"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "Get environment property", 
+        "tags": [
+          "environment property"
+        ]
+      }, 
+      "put": {
+        "description": "To update properties of an environment properties<br/>  ", 
+        "parameters": [
+          {
+            "allowMultiple": "False,", 
+            "dataType": "string,", 
+            "description": "Object UUID to return,", 
+            "in": "path,", 
+            "name": "uuid,", 
+            "paramType": "path", 
+            "required": "True,", 
+            "type": "string,"
+          }, 
+          {
+            "allowMultiple": "False,", 
+            "dataType": "string,", 
+            "description": "JSON containing fields to update,", 
+            "in": "body,", 
+            "name": "json,", 
+            "paramType": "query", 
+            "required": "True,", 
+            "type": "string,"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "Update environment property", 
+        "tags": [
+          "environment property"
+        ]
+      }
+    }, 
+    "/api/v1/environment_property/{uuid}/{relation}": {
+      "get": {
+        "description": "To get properties of the selected environment<br/>  ", 
+        "parameters": [
+          {
+            "allowMultiple": "False,", 
+            "dataType": "string,", 
+            "description": "Object UUID to return,", 
+            "in": "path,", 
+            "name": "uuid,", 
+            "paramType": "path", 
+            "required": "True,", 
+            "type": "string,"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "Get environment property", 
+        "tags": [
+          "environment property"
+        ]
+      }, 
+      "put": {
+        "description": "To update properties of an environment properties<br/>  ", 
+        "parameters": [
+          {
+            "allowMultiple": "False,", 
+            "dataType": "string,", 
+            "description": "Object UUID to return,", 
+            "in": "path,", 
+            "name": "uuid,", 
+            "paramType": "path", 
+            "required": "True,", 
+            "type": "string,"
+          }, 
+          {
+            "allowMultiple": "False,", 
+            "dataType": "string,", 
+            "description": "JSON containing fields to update,", 
+            "in": "body,", 
+            "name": "json,", 
+            "paramType": "query", 
+            "required": "True,", 
+            "type": "string,"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "Update environment property", 
+        "tags": [
+          "environment property"
+        ]
+      }
+    }, 
+    "/api/v1/environment_property/{uuid}/{relation}/{relation_id}": {
+      "get": {
+        "description": "To get properties of the selected environment<br/>  ", 
+        "parameters": [
+          {
+            "allowMultiple": "False,", 
+            "dataType": "string,", 
+            "description": "Object UUID to return,", 
+            "in": "path,", 
+            "name": "uuid,", 
+            "paramType": "path", 
+            "required": "True,", 
+            "type": "string,"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "Get environment property", 
+        "tags": [
+          "environment property"
+        ]
+      }, 
+      "put": {
+        "description": "To update properties of an environment properties<br/>  ", 
+        "parameters": [
+          {
+            "allowMultiple": "False,", 
+            "dataType": "string,", 
+            "description": "Object UUID to return,", 
+            "in": "path,", 
+            "name": "uuid,", 
+            "paramType": "path", 
+            "required": "True,", 
+            "type": "string,"
+          }, 
+          {
+            "allowMultiple": "False,", 
+            "dataType": "string,", 
+            "description": "JSON containing fields to update,", 
+            "in": "body,", 
+            "name": "json,", 
+            "paramType": "query", 
+            "required": "True,", 
+            "type": "string,"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "Update environment property", 
+        "tags": [
+          "environment property"
+        ]
+      }
+    }, 
+    "/api/v1/environments": {
+      "get": {
+        "description": "Returns list of available Environments.<br/>", 
+        "parameters": [
+          {
+            "allowMultiple": true, 
+            "description": "Name of the model's field, to filter by", 
+            "in": "query", 
+            "name": "filter", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "allowMultiple": true, 
+            "description": "Value of the filter field to look for", 
+            "in": "query", 
+            "name": "filter_value", 
+            "required": false, 
+            "type": "string"
+          }, 
+          {
+            "allowMultiple": false, 
+            "description": "Direction of sorting object in result json", 
+            "in": "path", 
+            "name": "sort_dir,", 
+            "required": false, 
+            "type": "asc or desc"
+          }, 
+          {
+            "allowMultiple": false, 
+            "description": "Page number if paging is enabled", 
+            "in": "query", 
+            "name": "page", 
+            "required": false, 
+            "type": "integer"
+          }, 
+          {
+            "allowMultiple": false, 
+            "description": "Number of results to return with one request", 
+            "in": "query", 
+            "name": "page_size", 
+            "required": false, 
+            "type": "integer"
+          }, 
+          {
+            "allowMultiple": false, 
+            "description": "Name of the relation too include in output model", 
+            "in": "query", 
+            "name": "include_rel", 
+            "required": false, 
+            "type": "integer"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "Get environments list", 
+        "tags": [
+          "endpoint"
+        ]
+      }, 
+      "post": {
+        "description": "To get all endpoints<br/>  ", 
+        "parameters": [
+          {
+            "allowMultiple": false, 
+            "dataType": "string", 
+            "description": "Object UUID to return", 
+            "in": "path", 
+            "name": "uuid", 
+            "paramType": "path", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "allowMultiple": false, 
+            "dataType": "string", 
+            "description": "JSON containing fields to update", 
+            "in": "body", 
+            "name": "json", 
+            "paramType": "query", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "Get endpoints", 
+        "tags": [
+          "endpoint"
+        ]
+      }
+    }, 
+    "/api/v1/execution/{uuid}": {
+      "delete": {
+        "description": "To get all executions<br/>  ", 
+        "parameters": [
+          {
+            "allowMultiple": false, 
+            "description": "Object UUID to delete", 
+            "in": "path", 
+            "name": "uuid", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "Get executions", 
+        "tags": [
+          "execution"
+        ]
+      }, 
+      "get": {
+        "description": "This will only provide high level<br/>information about execution. In order to get detailed of each execution step,<br/>please use execution_steps API<br/>  ", 
+        "parameters": [
+          {
+            "allowMultiple": false, 
+            "dataType": "string", 
+            "description": "Object UUID to return", 
+            "in": "path", 
+            "name": "uuid", 
+            "paramType": "path", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "Get benchmarking execution by uuid.", 
+        "tags": [
+          "execution"
+        ]
+      }, 
+      "put": {
+        "description": "Abort an execution which is in running status. Please note that aborting an<br/>execution means, it will stop after current testcase in suite is executed. This will<br/>not work for Functional TestSuite. Engine will set execution status to aborted<br/>once current testcsae is executed and executed is aborted.<br/>    ", 
+        "parameters": [
+          {
+            "allowMultiple": false, 
+            "description": "Object UUID to return", 
+            "in": "path", 
+            "name": "uuid", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "allowMultiple": false, 
+            "description": "JSON containing fields to update", 
+            "in": "query", 
+            "name": "json", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "Abort an execution", 
+        "tags": [
+          "execution"
+        ]
+      }
+    }, 
+    "/api/v1/execution/{uuid}/{relation}": {
+      "delete": {
+        "description": "To get all executions<br/>  ", 
+        "parameters": [
+          {
+            "allowMultiple": false, 
+            "description": "Object UUID to delete", 
+            "in": "path", 
+            "name": "uuid", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "Get executions", 
+        "tags": [
+          "execution"
+        ]
+      }, 
+      "get": {
+        "description": "This will only provide high level<br/>information about execution. In order to get detailed of each execution step,<br/>please use execution_steps API<br/>  ", 
+        "parameters": [
+          {
+            "allowMultiple": false, 
+            "dataType": "string", 
+            "description": "Object UUID to return", 
+            "in": "path", 
+            "name": "uuid", 
+            "paramType": "path", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "Get benchmarking execution by uuid.", 
+        "tags": [
+          "execution"
+        ]
+      }, 
+      "put": {
+        "description": "Abort an execution which is in running status. Please note that aborting an<br/>execution means, it will stop after current testcase in suite is executed. This will<br/>not work for Functional TestSuite. Engine will set execution status to aborted<br/>once current testcsae is executed and executed is aborted.<br/>    ", 
+        "parameters": [
+          {
+            "allowMultiple": false, 
+            "description": "Object UUID to return", 
+            "in": "path", 
+            "name": "uuid", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "allowMultiple": false, 
+            "description": "JSON containing fields to update", 
+            "in": "query", 
+            "name": "json", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "Abort an execution", 
+        "tags": [
+          "execution"
+        ]
+      }
+    }, 
+    "/api/v1/execution/{uuid}/{relation}/{relation_id}": {
+      "delete": {
+        "description": "To get all executions<br/>  ", 
+        "parameters": [
+          {
+            "allowMultiple": false, 
+            "description": "Object UUID to delete", 
+            "in": "path", 
+            "name": "uuid", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "Get executions", 
+        "tags": [
+          "execution"
+        ]
+      }, 
+      "get": {
+        "description": "This will only provide high level<br/>information about execution. In order to get detailed of each execution step,<br/>please use execution_steps API<br/>  ", 
+        "parameters": [
+          {
+            "allowMultiple": false, 
+            "dataType": "string", 
+            "description": "Object UUID to return", 
+            "in": "path", 
+            "name": "uuid", 
+            "paramType": "path", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "Get benchmarking execution by uuid.", 
+        "tags": [
+          "execution"
+        ]
+      }, 
+      "put": {
+        "description": "Abort an execution which is in running status. Please note that aborting an<br/>execution means, it will stop after current testcase in suite is executed. This will<br/>not work for Functional TestSuite. Engine will set execution status to aborted<br/>once current testcsae is executed and executed is aborted.<br/>    ", 
+        "parameters": [
+          {
+            "allowMultiple": false, 
+            "description": "Object UUID to return", 
+            "in": "path", 
+            "name": "uuid", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "allowMultiple": false, 
+            "description": "JSON containing fields to update", 
+            "in": "query", 
+            "name": "json", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "Abort an execution", 
+        "tags": [
+          "execution"
+        ]
+      }
+    }, 
+    "/api/v1/execution_step/{uuid}": {
+      "get": {
+        "description": "To get an execution step<br/>  ", 
+        "parameters": [
+          {
+            "allowMultiple": false, 
+            "description": "Object UUID to return", 
+            "in": "path", 
+            "name": "uuid", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "Get an execution step", 
+        "tags": [
+          "execution steps"
+        ]
+      }
+    }, 
+    "/api/v1/execution_step/{uuid}/{relation}": {
+      "get": {
+        "description": "To get an execution step<br/>  ", 
+        "parameters": [
+          {
+            "allowMultiple": false, 
+            "description": "Object UUID to return", 
+            "in": "path", 
+            "name": "uuid", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "Get an execution step", 
+        "tags": [
+          "execution steps"
+        ]
+      }
+    }, 
+    "/api/v1/execution_step/{uuid}/{relation}/{relation_id}": {
+      "get": {
+        "description": "To get an execution step<br/>  ", 
+        "parameters": [
+          {
+            "allowMultiple": false, 
+            "description": "Object UUID to return", 
+            "in": "path", 
+            "name": "uuid", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "Get an execution step", 
+        "tags": [
+          "execution steps"
+        ]
+      }
+    }, 
+    "/api/v1/execution_steps": {
+      "get": {
+        "description": "Get execution steps by filter<br/>  ", 
+        "parameters": [
+          {
+            "allowMultiple": true, 
+            "description": "Name of the model's field to filter by", 
+            "in": "query", 
+            "name": "filter", 
+            "required": false, 
+            "type": "String"
+          }, 
+          {
+            "allowMultiple": true, 
+            "description": "Value of the filter field to look for", 
+            "in": "query", 
+            "name": "filter_value", 
+            "required": false, 
+            "type": "String"
+          }, 
+          {
+            "allowMultiple": false, 
+            "dataType": "asc or desc", 
+            "description": "Direction of sorting object in result json", 
+            "in": "query", 
+            "name": "sort_dir", 
+            "paramType": "query", 
+            "required": false, 
+            "type": "asc or desc"
+          }, 
+          {
+            "allowMultiple": false, 
+            "dataType": "Integer", 
+            "description": "Page number if paging is enabled", 
+            "in": "query", 
+            "name": "page", 
+            "paramType": "query", 
+            "required": false, 
+            "type": "Integer"
+          }, 
+          {
+            "allowMultiple": false, 
+            "dataType": "String", 
+            "description": "Number of results to return with one request", 
+            "in": "query", 
+            "name": "page_size", 
+            "paramType": "query", 
+            "required": false, 
+            "type": "String"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "Get execution steps", 
+        "tags": [
+          "execution steps"
+        ]
+      }
+    }, 
+    "/api/v1/executions": {
+      "get": {
+        "description": "To get the list of executions<br/>  ", 
+        "parameters": [
+          {
+            "allowMultiple": true, 
+            "description": "Name of the model's field to filter by", 
+            "in": "body", 
+            "name": "filter", 
+            "required": false, 
+            "type": "String"
+          }, 
+          {
+            "allowMultiple": true, 
+            "description": "Value of the filter field to look for", 
+            "in": "body", 
+            "name": "filter_value", 
+            "required": false, 
+            "type": "String"
+          }, 
+          {
+            "allowMultiple": false, 
+            "description": "Direction of sorting object in result json", 
+            "in": "query", 
+            "name": "sort_dir", 
+            "required": false, 
+            "type": "asc or desc"
+          }, 
+          {
+            "allowMultiple": false, 
+            "description": "Page number if paging is enabled", 
+            "in": "query", 
+            "name": "page", 
+            "required": false, 
+            "type": "Integer"
+          }, 
+          {
+            "allowMultiple": false, 
+            "description": "Number of results to return with one request", 
+            "in": "query", 
+            "name": "page_size", 
+            "required": false, 
+            "type": "String"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "Get execution list", 
+        "tags": [
+          "execution"
+        ]
+      }
+    }, 
+    "/api/v1/import_test_suits": {
+      "get": {
+        "description": "To update properties of an environment properties<br/>  ", 
+        "parameters": [
+          {
+            "allowMultiple": true, 
+            "description": "Name of the model's field to filter by", 
+            "in": "query", 
+            "name": "filter", 
+            "required": false, 
+            "type": "String"
+          }, 
+          {
+            "allowMultiple": true, 
+            "description": "Value of the filter field to look for", 
+            "in": "query", 
+            "name": "filter_value", 
+            "required": false, 
+            "type": "String"
+          }, 
+          {
+            "allowMultiple": false, 
+            "description": "Direction of sorting object in result json", 
+            "in": "query", 
+            "name": "sort_dir", 
+            "required": false, 
+            "type": "asc or desc"
+          }, 
+          {
+            "allowMultiple": false, 
+            "description": "Page number if paging is enabled", 
+            "in": "query", 
+            "name": "page", 
+            "required": false, 
+            "type": "Integer"
+          }, 
+          {
+            "allowMultiple": false, 
+            "description": "Number of results to return with one request", 
+            "in": "query", 
+            "name": "page_size", 
+            "required": false, 
+            "type": "String"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "Get an imported testsuite by Id", 
+        "tags": [
+          "imported test suite"
+        ]
+      }, 
+      "post": {
+        "description": "  ", 
+        "parameters": [
+          {
+            "allowMultiple": false, 
+            "description": "Object UUID to return", 
+            "in": "path", 
+            "name": "uuid", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "allowMultiple": false, 
+            "description": "JSON containing fields to update", 
+            "in": "query", 
+            "name": "json", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "Get imported test suite", 
+        "tags": [
+          "endpoint"
+        ]
+      }
+    }, 
+    "/api/v1/license_operation": {
+      "get": {
+        "parameters": [
+          {
+            "allowMultiple": false, 
+            "description": "Object UUID to return", 
+            "in": "path", 
+            "name": "uuid", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "---", 
+        "tags": [
+          "endpoint"
+        ]
+      }, 
+      "post": {
+        "parameters": [
+          {
+            "allowMultiple": false, 
+            "description": "Object UUID to return", 
+            "in": "path", 
+            "name": "uuid", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "---", 
+        "tags": [
+          "endpoint"
+        ]
+      }
+    }, 
+    "/api/v1/licenses": {
+      "get": {
+        "description": "  ", 
+        "parameters": [
+          {
+            "allowMultiple": true, 
+            "description": "Name of the model's field to filter by", 
+            "in": "query", 
+            "name": "filter", 
+            "required": false, 
+            "type": "String"
+          }, 
+          {
+            "allowMultiple": true, 
+            "description": "Value of the filter field to look for", 
+            "in": "query", 
+            "name": "filter_value", 
+            "required": false, 
+            "type": "String"
+          }, 
+          {
+            "allowMultiple": false, 
+            "description": "Direction of sorting object in result json", 
+            "in": "query", 
+            "name": "sort_dir", 
+            "required": false, 
+            "type": "asc or desc"
+          }, 
+          {
+            "allowMultiple": false, 
+            "description": "Page number if paging is enabled", 
+            "in": "query", 
+            "name": "page", 
+            "required": false, 
+            "type": "Integer"
+          }, 
+          {
+            "allowMultiple": false, 
+            "description": "Number of results to return with one request", 
+            "in": "query", 
+            "name": "page_size", 
+            "required": false, 
+            "type": "String"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "License operation", 
+        "tags": [
+          "imported test suite"
+        ]
+      }
+    }, 
+    "/api/v1/login": {
+      "post": {
+        "description": "Login with credentials and get authentication token to continue further API calls.<br/>", 
+        "parameters": [
+          {
+            "allowMultiple": false, 
+            "description": "Login user ID", 
+            "in": "path", 
+            "name": "login", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "allowMultiple": false, 
+            "description": "Login password", 
+            "in": "body", 
+            "name": "passwd", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "summary": "Login", 
+        "tags": [
+          "authentication"
+        ]
+      }
+    }, 
+    "/api/v1/report/{uuid}": {
+      "delete": {
+        "parameters": [
+          {
+            "allowMultiple": false, 
+            "description": "Object UUID to return", 
+            "in": "path", 
+            "name": "uuid", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "Delete report by UUID", 
+        "tags": [
+          "report"
+        ]
+      }, 
+      "get": {
+        "description": "Full Report as JSON object for given ReportId.<br/>", 
+        "parameters": [
+          {
+            "allowMultiple": false, 
+            "description": "Object UUID to return", 
+            "in": "path", 
+            "name": "uuid", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "allowMultiple": false, 
+            "description": "UUID of second report, to compare with report under first uuid param", 
+            "in": "path", 
+            "name": "json", 
+            "required": false, 
+            "type": "string"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "Get report by UUID", 
+        "tags": [
+          "report"
+        ]
+      }
+    }, 
+    "/api/v1/report/{uuid}/compare/{rpt_uuid}": {
+      "delete": {
+        "parameters": [
+          {
+            "allowMultiple": false, 
+            "description": "Object UUID to return", 
+            "in": "path", 
+            "name": "uuid", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "Delete report by UUID", 
+        "tags": [
+          "report"
+        ]
+      }, 
+      "get": {
+        "description": "Full Report as JSON object for given ReportId.<br/>", 
+        "parameters": [
+          {
+            "allowMultiple": false, 
+            "description": "Object UUID to return", 
+            "in": "path", 
+            "name": "uuid", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "allowMultiple": false, 
+            "description": "UUID of second report, to compare with report under first uuid param", 
+            "in": "path", 
+            "name": "json", 
+            "required": false, 
+            "type": "string"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "Get report by UUID", 
+        "tags": [
+          "report"
+        ]
+      }
+    }, 
+    "/api/v1/report/{uuid}/{relation}": {
+      "delete": {
+        "parameters": [
+          {
+            "allowMultiple": false, 
+            "description": "Object UUID to return", 
+            "in": "path", 
+            "name": "uuid", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "Delete report by UUID", 
+        "tags": [
+          "report"
+        ]
+      }, 
+      "get": {
+        "description": "Full Report as JSON object for given ReportId.<br/>", 
+        "parameters": [
+          {
+            "allowMultiple": false, 
+            "description": "Object UUID to return", 
+            "in": "path", 
+            "name": "uuid", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "allowMultiple": false, 
+            "description": "UUID of second report, to compare with report under first uuid param", 
+            "in": "path", 
+            "name": "json", 
+            "required": false, 
+            "type": "string"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "Get report by UUID", 
+        "tags": [
+          "report"
+        ]
+      }
+    }, 
+    "/api/v1/report/{uuid}/{relation}/{relation_id}": {
+      "delete": {
+        "parameters": [
+          {
+            "allowMultiple": false, 
+            "description": "Object UUID to return", 
+            "in": "path", 
+            "name": "uuid", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "Delete report by UUID", 
+        "tags": [
+          "report"
+        ]
+      }, 
+      "get": {
+        "description": "Full Report as JSON object for given ReportId.<br/>", 
+        "parameters": [
+          {
+            "allowMultiple": false, 
+            "description": "Object UUID to return", 
+            "in": "path", 
+            "name": "uuid", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "allowMultiple": false, 
+            "description": "UUID of second report, to compare with report under first uuid param", 
+            "in": "path", 
+            "name": "json", 
+            "required": false, 
+            "type": "string"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "Get report by UUID", 
+        "tags": [
+          "report"
+        ]
+      }
+    }, 
+    "/api/v1/report_export/{type}": {
+      "get": {
+        "parameters": [
+          {
+            "allowMultiple": false, 
+            "description": "Type of search to apply, while exporting", 
+            "in": "path", 
+            "name": "type", 
+            "required": true, 
+            "type": "report"
+          }, 
+          {
+            "allowMultiple": false, 
+            "description": "Report UUID to export", 
+            "in": "path", 
+            "name": "id", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "---", 
+        "tags": [
+          "endpoint"
+        ]
+      }
+    }, 
+    "/api/v1/report_export/{type}/{uuid}": {
+      "get": {
+        "parameters": [
+          {
+            "allowMultiple": false, 
+            "description": "Type of search to apply, while exporting", 
+            "in": "path", 
+            "name": "type", 
+            "required": true, 
+            "type": "report"
+          }, 
+          {
+            "allowMultiple": false, 
+            "description": "Report UUID to export", 
+            "in": "path", 
+            "name": "id", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "---", 
+        "tags": [
+          "endpoint"
+        ]
+      }
+    }, 
+    "/api/v1/report_import": {
+      "post": {
+        "description": "  ", 
+        "parameters": [
+          {
+            "allowMultiple": true, 
+            "description": "JSON to import into system", 
+            "in": "body", 
+            "name": "report", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "Get imported test suite", 
+        "tags": [
+          "endpoint"
+        ]
+      }
+    }, 
+    "/api/v1/report_summary": {
+      "get": {
+        "parameters": [
+          {
+            "allowMultiple": false, 
+            "description": "Object UUID to return", 
+            "in": "path", 
+            "name": "uuid", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "---", 
+        "tags": [
+          "endpoint"
+        ]
+      }, 
+      "post": {
+        "parameters": [
+          {
+            "allowMultiple": false, 
+            "description": "Object UUID to return", 
+            "in": "path", 
+            "name": "uuid", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "allowMultiple": false, 
+            "description": "JSON containing fields to update", 
+            "in": "body", 
+            "name": "json", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "---", 
+        "tags": [
+          "endpoint"
+        ]
+      }
+    }, 
+    "/api/v1/report_summary/{uuid}": {
+      "delete": {
+        "parameters": [
+          {
+            "allowMultiple": false, 
+            "description": "Object UUID to delete", 
+            "in": "path", 
+            "name": "uuid", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "---", 
+        "tags": [
+          "endpoint"
+        ]
+      }, 
+      "get": {
+        "parameters": [
+          {
+            "allowMultiple": false, 
+            "description": "Object UUID to get", 
+            "in": "path", 
+            "name": "uuid", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "---", 
+        "tags": [
+          "endpoint"
+        ]
+      }
+    }, 
+    "/api/v1/reports": {
+      "get": {
+        "description": "Returns list of available Reports in System. This will return only high level<br/>information about each report.<br/>", 
+        "parameters": [
+          {
+            "allowMultiple": true, 
+            "description": "Name of the model's field to filter by", 
+            "in": "query", 
+            "name": "filter", 
+            "required": false, 
+            "type": "String"
+          }, 
+          {
+            "allowMultiple": true, 
+            "description": "Value of the filter field to look for", 
+            "in": "query", 
+            "name": "filter_value", 
+            "required": false, 
+            "type": "String"
+          }, 
+          {
+            "allowMultiple": false, 
+            "description": "Direction of sorting object in result json", 
+            "in": "query", 
+            "name": "sort_dir", 
+            "required": false, 
+            "type": "asc or desc"
+          }, 
+          {
+            "allowMultiple": false, 
+            "description": "Page number if paging is enabled", 
+            "in": "query", 
+            "name": "page", 
+            "required": false, 
+            "type": "Integer"
+          }, 
+          {
+            "allowMultiple": false, 
+            "description": "Number of results to return with one request", 
+            "in": "query", 
+            "name": "page_size", 
+            "required": false, 
+            "type": "String"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "Get reports list", 
+        "tags": [
+          "report"
+        ]
+      }
+    }, 
+    "/api/v1/reports/{relation}": {
+      "get": {
+        "description": "Returns list of available Reports in System. This will return only high level<br/>information about each report.<br/>", 
+        "parameters": [
+          {
+            "allowMultiple": true, 
+            "description": "Name of the model's field to filter by", 
+            "in": "query", 
+            "name": "filter", 
+            "required": false, 
+            "type": "String"
+          }, 
+          {
+            "allowMultiple": true, 
+            "description": "Value of the filter field to look for", 
+            "in": "query", 
+            "name": "filter_value", 
+            "required": false, 
+            "type": "String"
+          }, 
+          {
+            "allowMultiple": false, 
+            "description": "Direction of sorting object in result json", 
+            "in": "query", 
+            "name": "sort_dir", 
+            "required": false, 
+            "type": "asc or desc"
+          }, 
+          {
+            "allowMultiple": false, 
+            "description": "Page number if paging is enabled", 
+            "in": "query", 
+            "name": "page", 
+            "required": false, 
+            "type": "Integer"
+          }, 
+          {
+            "allowMultiple": false, 
+            "description": "Number of results to return with one request", 
+            "in": "query", 
+            "name": "page_size", 
+            "required": false, 
+            "type": "String"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "Get reports list", 
+        "tags": [
+          "report"
+        ]
+      }
+    }, 
+    "/api/v1/runner/{uuid}/": {
+      "get": {
+        "parameters": [
+          {
+            "allowMultiple": false, 
+            "description": "Object UUID to return", 
+            "in": "path", 
+            "name": "uuid", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "---", 
+        "tags": [
+          "endpoint"
+        ]
+      }
+    }, 
+    "/api/v1/runners": {
+      "get": {
+        "parameters": [
+          {
+            "allowMultiple": true, 
+            "description": "Name of the model's field to filter by", 
+            "in": "query", 
+            "name": "filter", 
+            "required": false, 
+            "type": "String"
+          }, 
+          {
+            "allowMultiple": true, 
+            "description": "Value of the filter field to look for", 
+            "in": "query", 
+            "name": "filter_value", 
+            "required": false, 
+            "type": "String"
+          }, 
+          {
+            "allowMultiple": false, 
+            "description": "Direction of sorting object in result json", 
+            "in": "query", 
+            "name": "sort_dir", 
+            "required": false, 
+            "type": "asc or desc"
+          }, 
+          {
+            "allowMultiple": false, 
+            "description": "Page number if paging is enabled", 
+            "in": "query", 
+            "name": "page", 
+            "required": false, 
+            "type": "Integer"
+          }, 
+          {
+            "allowMultiple": false, 
+            "description": "Number of results to return with one request", 
+            "in": "query", 
+            "name": "page_size", 
+            "required": false, 
+            "type": "String"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "---", 
+        "tags": [
+          "imported test suite"
+        ]
+      }
+    }, 
+    "/api/v1/scenario/{uuid}": {
+      "delete": {
+        "parameters": [
+          {
+            "allowMultiple": false, 
+            "description": "Object UUID to delete", 
+            "in": "path", 
+            "name": "uuid", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "---", 
+        "tags": [
+          "endpoint"
+        ]
+      }, 
+      "get": {
+        "parameters": [
+          {
+            "allowMultiple": false, 
+            "description": "Object UUID to delete", 
+            "in": "path", 
+            "name": "uuid", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "---", 
+        "tags": [
+          "endpoint"
+        ]
+      }, 
+      "post": {
+        "parameters": [
+          {
+            "allowMultiple": true, 
+            "description": "Name of the model's field to filter by", 
+            "in": "query", 
+            "name": "filter", 
+            "required": false, 
+            "type": "String"
+          }, 
+          {
+            "allowMultiple": true, 
+            "description": "Value of the filter field to look for", 
+            "in": "query", 
+            "name": "filter_value", 
+            "required": false, 
+            "type": "String"
+          }, 
+          {
+            "allowMultiple": false, 
+            "description": "Direction of sorting object in result json", 
+            "in": "query", 
+            "name": "sort_dir", 
+            "required": false, 
+            "type": "asc or desc"
+          }, 
+          {
+            "allowMultiple": false, 
+            "description": "Page number if paging is enabled", 
+            "in": "query", 
+            "name": "page", 
+            "required": false, 
+            "type": "Integer"
+          }, 
+          {
+            "allowMultiple": false, 
+            "description": "Number of results to return with one request", 
+            "in": "query", 
+            "name": "page_size", 
+            "required": false, 
+            "type": "String"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "---", 
+        "tags": [
+          "imported test suite"
+        ]
+      }, 
+      "put": {
+        "parameters": [
+          {
+            "allowMultiple": false, 
+            "description": "Object UUID to return", 
+            "in": "path", 
+            "name": "uuid", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "allowMultiple": false, 
+            "description": "JSON containing fields to update", 
+            "in": "body", 
+            "name": "json", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "---", 
+        "tags": [
+          "endpoint"
+        ]
+      }
+    }, 
+    "/api/v1/scenario/{uuid}/{relation}": {
+      "delete": {
+        "parameters": [
+          {
+            "allowMultiple": false, 
+            "description": "Object UUID to delete", 
+            "in": "path", 
+            "name": "uuid", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "---", 
+        "tags": [
+          "endpoint"
+        ]
+      }, 
+      "get": {
+        "parameters": [
+          {
+            "allowMultiple": false, 
+            "description": "Object UUID to delete", 
+            "in": "path", 
+            "name": "uuid", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "---", 
+        "tags": [
+          "endpoint"
+        ]
+      }, 
+      "post": {
+        "parameters": [
+          {
+            "allowMultiple": true, 
+            "description": "Name of the model's field to filter by", 
+            "in": "query", 
+            "name": "filter", 
+            "required": false, 
+            "type": "String"
+          }, 
+          {
+            "allowMultiple": true, 
+            "description": "Value of the filter field to look for", 
+            "in": "query", 
+            "name": "filter_value", 
+            "required": false, 
+            "type": "String"
+          }, 
+          {
+            "allowMultiple": false, 
+            "description": "Direction of sorting object in result json", 
+            "in": "query", 
+            "name": "sort_dir", 
+            "required": false, 
+            "type": "asc or desc"
+          }, 
+          {
+            "allowMultiple": false, 
+            "description": "Page number if paging is enabled", 
+            "in": "query", 
+            "name": "page", 
+            "required": false, 
+            "type": "Integer"
+          }, 
+          {
+            "allowMultiple": false, 
+            "description": "Number of results to return with one request", 
+            "in": "query", 
+            "name": "page_size", 
+            "required": false, 
+            "type": "String"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "---", 
+        "tags": [
+          "imported test suite"
+        ]
+      }, 
+      "put": {
+        "parameters": [
+          {
+            "allowMultiple": false, 
+            "description": "Object UUID to return", 
+            "in": "path", 
+            "name": "uuid", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "allowMultiple": false, 
+            "description": "JSON containing fields to update", 
+            "in": "body", 
+            "name": "json", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "---", 
+        "tags": [
+          "endpoint"
+        ]
+      }
+    }, 
+    "/api/v1/scenario/{uuid}/{relation}/{relation_id}": {
+      "delete": {
+        "parameters": [
+          {
+            "allowMultiple": false, 
+            "description": "Object UUID to delete", 
+            "in": "path", 
+            "name": "uuid", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "---", 
+        "tags": [
+          "endpoint"
+        ]
+      }, 
+      "get": {
+        "parameters": [
+          {
+            "allowMultiple": false, 
+            "description": "Object UUID to delete", 
+            "in": "path", 
+            "name": "uuid", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "---", 
+        "tags": [
+          "endpoint"
+        ]
+      }, 
+      "post": {
+        "parameters": [
+          {
+            "allowMultiple": true, 
+            "description": "Name of the model's field to filter by", 
+            "in": "query", 
+            "name": "filter", 
+            "required": false, 
+            "type": "String"
+          }, 
+          {
+            "allowMultiple": true, 
+            "description": "Value of the filter field to look for", 
+            "in": "query", 
+            "name": "filter_value", 
+            "required": false, 
+            "type": "String"
+          }, 
+          {
+            "allowMultiple": false, 
+            "description": "Direction of sorting object in result json", 
+            "in": "query", 
+            "name": "sort_dir", 
+            "required": false, 
+            "type": "asc or desc"
+          }, 
+          {
+            "allowMultiple": false, 
+            "description": "Page number if paging is enabled", 
+            "in": "query", 
+            "name": "page", 
+            "required": false, 
+            "type": "Integer"
+          }, 
+          {
+            "allowMultiple": false, 
+            "description": "Number of results to return with one request", 
+            "in": "query", 
+            "name": "page_size", 
+            "required": false, 
+            "type": "String"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "---", 
+        "tags": [
+          "imported test suite"
+        ]
+      }, 
+      "put": {
+        "parameters": [
+          {
+            "allowMultiple": false, 
+            "description": "Object UUID to return", 
+            "in": "path", 
+            "name": "uuid", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "allowMultiple": false, 
+            "description": "JSON containing fields to update", 
+            "in": "body", 
+            "name": "json", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "---", 
+        "tags": [
+          "endpoint"
+        ]
+      }
+    }, 
+    "/api/v1/scenarios": {
+      "post": {
+        "parameters": [
+          {
+            "allowMultiple": false, 
+            "description": "Object UUID to return", 
+            "in": "path", 
+            "name": "uuid", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "allowMultiple": false, 
+            "description": "JSON containing fields to update", 
+            "in": "body", 
+            "name": "json", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "---", 
+        "tags": [
+          "endpoint"
+        ]
+      }
+    }, 
+    "/api/v1/sla/{uuid}": {
+      "delete": {
+        "parameters": [
+          {
+            "allowMultiple": false, 
+            "description": "Object UUID to delete", 
+            "in": "path", 
+            "name": "uuid", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "---", 
+        "tags": [
+          "endpoint"
+        ]
+      }, 
+      "get": {
+        "parameters": [
+          {
+            "allowMultiple": false, 
+            "description": "Object UUID to return", 
+            "in": "path", 
+            "name": "uuid", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "---", 
+        "tags": [
+          "endpoint"
+        ]
+      }, 
+      "put": {
+        "parameters": [
+          {
+            "allowMultiple": false, 
+            "description": "Object UUID to return", 
+            "in": "path", 
+            "name": "uuid", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "allowMultiple": false, 
+            "description": "JSON containing fields to update", 
+            "in": "body", 
+            "name": "json", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "---", 
+        "tags": [
+          "endpoint"
+        ]
+      }
+    }, 
+    "/api/v1/sla_test/{sla_uuid}/{test_uuid}": {
+      "get": {
+        "parameters": [
+          {
+            "allowMultiple": false, 
+            "description": "SLA UUID to apply as filter value", 
+            "in": "path", 
+            "name": "sla_uuid", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "allowMultiple": false, 
+            "description": "Test UUID to apply as filter value", 
+            "in": "body", 
+            "name": "test_uuid", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "---", 
+        "tags": [
+          "endpoint"
+        ]
+      }, 
+      "put": {
+        "parameters": [
+          {
+            "allowMultiple": false, 
+            "description": "SLA UUID to connect with test case", 
+            "in": "path", 
+            "name": "sla_uuid", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "allowMultiple": false, 
+            "description": "Test UUID to connect with SLA", 
+            "in": "body", 
+            "name": "test_uuid", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "---", 
+        "tags": [
+          "endpoint"
+        ]
+      }
+    }, 
+    "/api/v1/slas": {
+      "get": {
+        "parameters": [
+          {
+            "allowMultiple": true, 
+            "description": "Name of the model's field to filter by", 
+            "in": "query", 
+            "name": "filter", 
+            "required": false, 
+            "type": "String"
+          }, 
+          {
+            "allowMultiple": true, 
+            "description": "Value of the filter field to look for", 
+            "in": "query", 
+            "name": "filter_value", 
+            "required": false, 
+            "type": "String"
+          }, 
+          {
+            "allowMultiple": false, 
+            "description": "Direction of sorting object in result json", 
+            "in": "query", 
+            "name": "sort_dir", 
+            "required": false, 
+            "type": "asc or desc"
+          }, 
+          {
+            "allowMultiple": false, 
+            "description": "Page number if paging is enabled", 
+            "in": "query", 
+            "name": "page", 
+            "required": false, 
+            "type": "Integer"
+          }, 
+          {
+            "allowMultiple": false, 
+            "description": "Number of results to return with one request", 
+            "in": "query", 
+            "name": "page_size", 
+            "required": false, 
+            "type": "String"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "---", 
+        "tags": [
+          "imported test suite"
+        ]
+      }, 
+      "post": {
+        "parameters": [
+          {
+            "allowMultiple": false, 
+            "description": "Object UUID to return", 
+            "in": "path", 
+            "name": "uuid", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "allowMultiple": false, 
+            "description": "JSON containing fields to update", 
+            "in": "body", 
+            "name": "json", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "---", 
+        "tags": [
+          "endpoint"
+        ]
+      }
+    }, 
+    "/api/v1/tags": {
+      "get": {
+        "parameters": [
+          {
+            "allowMultiple": true, 
+            "description": "Name of the model's field to filter by", 
+            "in": "query", 
+            "name": "filter", 
+            "required": false, 
+            "type": "String"
+          }, 
+          {
+            "allowMultiple": true, 
+            "description": "Value of the filter field to look for", 
+            "in": "query", 
+            "name": "filter_value", 
+            "required": false, 
+            "type": "String"
+          }, 
+          {
+            "allowMultiple": false, 
+            "description": "Direction of sorting object in result json", 
+            "in": "query", 
+            "name": "sort_dir", 
+            "required": false, 
+            "type": "asc or desc"
+          }, 
+          {
+            "allowMultiple": false, 
+            "description": "Page number if paging is enabled", 
+            "in": "query", 
+            "name": "page", 
+            "required": false, 
+            "type": "Integer"
+          }, 
+          {
+            "allowMultiple": false, 
+            "description": "Number of results to return with one request", 
+            "in": "query", 
+            "name": "page_size", 
+            "required": false, 
+            "type": "String"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "---", 
+        "tags": [
+          "imported test suite"
+        ]
+      }
+    }, 
+    "/api/v1/team/{uuid}": {
+      "delete": {
+        "parameters": [
+          {
+            "allowMultiple": false, 
+            "description": "Object UUID to return", 
+            "in": "path", 
+            "name": "uuid", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "---", 
+        "tags": [
+          "endpoint"
+        ]
+      }, 
+      "get": {
+        "parameters": [
+          {
+            "allowMultiple": false, 
+            "description": "Object UUID to return", 
+            "in": "path", 
+            "name": "uuid", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "---", 
+        "tags": [
+          "endpoint"
+        ]
+      }, 
+      "put": {
+        "parameters": [
+          {
+            "allowMultiple": false, 
+            "description": "Object UUID to return", 
+            "in": "path", 
+            "name": "uuid", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "allowMultiple": false, 
+            "description": "JSON containing fields to update", 
+            "in": "body", 
+            "name": "json", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "---", 
+        "tags": [
+          "endpoint"
+        ]
+      }
+    }, 
+    "/api/v1/team/{uuid}/{relation}": {
+      "delete": {
+        "parameters": [
+          {
+            "allowMultiple": false, 
+            "description": "Object UUID to return", 
+            "in": "path", 
+            "name": "uuid", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "---", 
+        "tags": [
+          "endpoint"
+        ]
+      }, 
+      "get": {
+        "parameters": [
+          {
+            "allowMultiple": false, 
+            "description": "Object UUID to return", 
+            "in": "path", 
+            "name": "uuid", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "---", 
+        "tags": [
+          "endpoint"
+        ]
+      }, 
+      "put": {
+        "parameters": [
+          {
+            "allowMultiple": false, 
+            "description": "Object UUID to return", 
+            "in": "path", 
+            "name": "uuid", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "allowMultiple": false, 
+            "description": "JSON containing fields to update", 
+            "in": "body", 
+            "name": "json", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "---", 
+        "tags": [
+          "endpoint"
+        ]
+      }
+    }, 
+    "/api/v1/teams": {
+      "get": {
+        "parameters": [
+          {
+            "allowMultiple": true, 
+            "description": "Name of the model's field to filter by", 
+            "in": "query", 
+            "name": "filter", 
+            "required": false, 
+            "type": "String"
+          }, 
+          {
+            "allowMultiple": true, 
+            "description": "Value of the filter field to look for", 
+            "in": "query", 
+            "name": "filter_value", 
+            "required": false, 
+            "type": "String"
+          }, 
+          {
+            "allowMultiple": false, 
+            "description": "Direction of sorting object in result json", 
+            "in": "query", 
+            "name": "sort_dir", 
+            "required": false, 
+            "type": "asc or desc"
+          }, 
+          {
+            "allowMultiple": false, 
+            "description": "Page number if paging is enabled", 
+            "in": "query", 
+            "name": "page", 
+            "required": false, 
+            "type": "Integer"
+          }, 
+          {
+            "allowMultiple": false, 
+            "description": "Number of results to return with one request", 
+            "in": "query", 
+            "name": "page_size", 
+            "required": false, 
+            "type": "String"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "---", 
+        "tags": [
+          "imported test suite"
+        ]
+      }, 
+      "post": {
+        "parameters": [
+          {
+            "allowMultiple": false, 
+            "description": "Object UUID to return", 
+            "in": "path", 
+            "name": "uuid", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "allowMultiple": false, 
+            "description": "JSON containing fields to update", 
+            "in": "body", 
+            "name": "json", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "---", 
+        "tags": [
+          "endpoint"
+        ]
+      }
+    }, 
+    "/api/v1/test_case/{uuid}": {
+      "delete": {
+        "parameters": [
+          {
+            "allowMultiple": false, 
+            "description": "Object UUID to delete", 
+            "in": "path", 
+            "name": "uuid", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "---", 
+        "tags": [
+          "endpoint"
+        ]
+      }, 
+      "get": {
+        "parameters": [
+          {
+            "allowMultiple": false, 
+            "description": "Object UUID to return", 
+            "in": "path", 
+            "name": "uuid", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "---", 
+        "tags": [
+          "endpoint"
+        ]
+      }, 
+      "post": {
+        "parameters": [
+          {
+            "allowMultiple": false, 
+            "description": "Object UUID to return", 
+            "in": "path", 
+            "name": "uuid", 
+            "required": true, 
+            "type": "String"
+          }, 
+          {
+            "allowMultiple": false, 
+            "description": "UUID of relation to add in object", 
+            "in": "path", 
+            "name": "relation_uuid", 
+            "required": true, 
+            "type": "String"
+          }, 
+          {
+            "allowMultiple": false, 
+            "description": "Name of relation to add in object", 
+            "in": "path", 
+            "name": "relation", 
+            "required": false, 
+            "type": "Integer"
+          }, 
+          {
+            "allowMultiple": false, 
+            "description": "JSON containing fields to update", 
+            "in": "body", 
+            "name": "json", 
+            "required": true, 
+            "type": "String"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "---", 
+        "tags": [
+          "imported test suite"
+        ]
+      }, 
+      "put": {
+        "parameters": [
+          {
+            "allowMultiple": false, 
+            "description": "Object UUID to return", 
+            "in": "path", 
+            "name": "uuid", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "allowMultiple": false, 
+            "description": "JSON containing fields to update", 
+            "in": "body", 
+            "name": "json", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "---", 
+        "tags": [
+          "endpoint"
+        ]
+      }
+    }, 
+    "/api/v1/test_case/{uuid}/{relation}": {
+      "delete": {
+        "parameters": [
+          {
+            "allowMultiple": false, 
+            "description": "Object UUID to delete", 
+            "in": "path", 
+            "name": "uuid", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "---", 
+        "tags": [
+          "endpoint"
+        ]
+      }, 
+      "get": {
+        "parameters": [
+          {
+            "allowMultiple": false, 
+            "description": "Object UUID to return", 
+            "in": "path", 
+            "name": "uuid", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "---", 
+        "tags": [
+          "endpoint"
+        ]
+      }, 
+      "post": {
+        "parameters": [
+          {
+            "allowMultiple": false, 
+            "description": "Object UUID to return", 
+            "in": "path", 
+            "name": "uuid", 
+            "required": true, 
+            "type": "String"
+          }, 
+          {
+            "allowMultiple": false, 
+            "description": "UUID of relation to add in object", 
+            "in": "path", 
+            "name": "relation_uuid", 
+            "required": true, 
+            "type": "String"
+          }, 
+          {
+            "allowMultiple": false, 
+            "description": "Name of relation to add in object", 
+            "in": "path", 
+            "name": "relation", 
+            "required": false, 
+            "type": "Integer"
+          }, 
+          {
+            "allowMultiple": false, 
+            "description": "JSON containing fields to update", 
+            "in": "body", 
+            "name": "json", 
+            "required": true, 
+            "type": "String"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "---", 
+        "tags": [
+          "imported test suite"
+        ]
+      }, 
+      "put": {
+        "parameters": [
+          {
+            "allowMultiple": false, 
+            "description": "Object UUID to return", 
+            "in": "path", 
+            "name": "uuid", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "allowMultiple": false, 
+            "description": "JSON containing fields to update", 
+            "in": "body", 
+            "name": "json", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "---", 
+        "tags": [
+          "endpoint"
+        ]
+      }
+    }, 
+    "/api/v1/test_case/{uuid}/{relation}/{relation_id}": {
+      "delete": {
+        "parameters": [
+          {
+            "allowMultiple": false, 
+            "description": "Object UUID to delete", 
+            "in": "path", 
+            "name": "uuid", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "---", 
+        "tags": [
+          "endpoint"
+        ]
+      }, 
+      "get": {
+        "parameters": [
+          {
+            "allowMultiple": false, 
+            "description": "Object UUID to return", 
+            "in": "path", 
+            "name": "uuid", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "---", 
+        "tags": [
+          "endpoint"
+        ]
+      }, 
+      "post": {
+        "parameters": [
+          {
+            "allowMultiple": false, 
+            "description": "Object UUID to return", 
+            "in": "path", 
+            "name": "uuid", 
+            "required": true, 
+            "type": "String"
+          }, 
+          {
+            "allowMultiple": false, 
+            "description": "UUID of relation to add in object", 
+            "in": "path", 
+            "name": "relation_uuid", 
+            "required": true, 
+            "type": "String"
+          }, 
+          {
+            "allowMultiple": false, 
+            "description": "Name of relation to add in object", 
+            "in": "path", 
+            "name": "relation", 
+            "required": false, 
+            "type": "Integer"
+          }, 
+          {
+            "allowMultiple": false, 
+            "description": "JSON containing fields to update", 
+            "in": "body", 
+            "name": "json", 
+            "required": true, 
+            "type": "String"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "---", 
+        "tags": [
+          "imported test suite"
+        ]
+      }, 
+      "put": {
+        "parameters": [
+          {
+            "allowMultiple": false, 
+            "description": "Object UUID to return", 
+            "in": "path", 
+            "name": "uuid", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "allowMultiple": false, 
+            "description": "JSON containing fields to update", 
+            "in": "body", 
+            "name": "json", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "---", 
+        "tags": [
+          "endpoint"
+        ]
+      }
+    }, 
+    "/api/v1/test_cases": {
+      "get": {
+        "parameters": [
+          {
+            "allowMultiple": true, 
+            "description": "Name of the model's field to filter by", 
+            "in": "query", 
+            "name": "filter", 
+            "required": false, 
+            "type": "String"
+          }, 
+          {
+            "allowMultiple": true, 
+            "description": "Value of the filter field to look for", 
+            "in": "query", 
+            "name": "filter_value", 
+            "required": false, 
+            "type": "String"
+          }, 
+          {
+            "allowMultiple": false, 
+            "description": "Direction of sorting object in result json", 
+            "in": "query", 
+            "name": "sort_dir", 
+            "required": false, 
+            "type": "asc or desc"
+          }, 
+          {
+            "allowMultiple": false, 
+            "description": "Page number if paging is enabled", 
+            "in": "query", 
+            "name": "page", 
+            "required": false, 
+            "type": "Integer"
+          }, 
+          {
+            "allowMultiple": false, 
+            "description": "Number of results to return with one request", 
+            "in": "query", 
+            "name": "page_size", 
+            "required": false, 
+            "type": "String"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "---", 
+        "tags": [
+          "imported test suite"
+        ]
+      }, 
+      "post": {
+        "parameters": [
+          {
+            "allowMultiple": false, 
+            "description": "Object UUID to return", 
+            "in": "path", 
+            "name": "uuid", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "allowMultiple": false, 
+            "description": "JSON containing fields to update", 
+            "in": "body", 
+            "name": "json", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "---", 
+        "tags": [
+          "endpoint"
+        ]
+      }
+    }, 
+    "/api/v1/test_suit/{uuid}": {
+      "delete": {
+        "parameters": [
+          {
+            "allowMultiple": false, 
+            "description": "Object UUID to delete", 
+            "in": "path", 
+            "name": "uuid", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "---", 
+        "tags": [
+          "endpoint"
+        ]
+      }, 
+      "get": {
+        "description": "Returns TestSuite available in system<br/>", 
+        "parameters": [
+          {
+            "allowMultiple": false, 
+            "description": "Object UUID to return", 
+            "in": "path", 
+            "name": "uuid", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "Get TestSuite by ID", 
+        "tags": [
+          "endpoint"
+        ]
+      }, 
+      "post": {
+        "parameters": [
+          {
+            "allowMultiple": false, 
+            "description": "Object UUID to return", 
+            "in": "path", 
+            "name": "uuid", 
+            "required": true, 
+            "type": "String"
+          }, 
+          {
+            "allowMultiple": false, 
+            "description": "UUID of relation to add in object", 
+            "in": "path", 
+            "name": "relation_uuid", 
+            "required": true, 
+            "type": "String"
+          }, 
+          {
+            "allowMultiple": false, 
+            "description": "Name of relation to add in object", 
+            "in": "path", 
+            "name": "relation", 
+            "required": false, 
+            "type": "Integer"
+          }, 
+          {
+            "allowMultiple": false, 
+            "description": "JSON containing fields to update", 
+            "in": "body", 
+            "name": "json", 
+            "required": true, 
+            "type": "String"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "---", 
+        "tags": [
+          "imported test suite"
+        ]
+      }, 
+      "put": {
+        "parameters": [
+          {
+            "allowMultiple": false, 
+            "description": "Object UUID to return", 
+            "in": "path", 
+            "name": "uuid", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "allowMultiple": false, 
+            "description": "JSON containing fields to update", 
+            "in": "body", 
+            "name": "json", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "---", 
+        "tags": [
+          "endpoint"
+        ]
+      }
+    }, 
+    "/api/v1/test_suit/{uuid}/{relation}": {
+      "delete": {
+        "parameters": [
+          {
+            "allowMultiple": false, 
+            "description": "Object UUID to delete", 
+            "in": "path", 
+            "name": "uuid", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "---", 
+        "tags": [
+          "endpoint"
+        ]
+      }, 
+      "get": {
+        "description": "Returns TestSuite available in system<br/>", 
+        "parameters": [
+          {
+            "allowMultiple": false, 
+            "description": "Object UUID to return", 
+            "in": "path", 
+            "name": "uuid", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "Get TestSuite by ID", 
+        "tags": [
+          "endpoint"
+        ]
+      }, 
+      "post": {
+        "parameters": [
+          {
+            "allowMultiple": false, 
+            "description": "Object UUID to return", 
+            "in": "path", 
+            "name": "uuid", 
+            "required": true, 
+            "type": "String"
+          }, 
+          {
+            "allowMultiple": false, 
+            "description": "UUID of relation to add in object", 
+            "in": "path", 
+            "name": "relation_uuid", 
+            "required": true, 
+            "type": "String"
+          }, 
+          {
+            "allowMultiple": false, 
+            "description": "Name of relation to add in object", 
+            "in": "path", 
+            "name": "relation", 
+            "required": false, 
+            "type": "Integer"
+          }, 
+          {
+            "allowMultiple": false, 
+            "description": "JSON containing fields to update", 
+            "in": "body", 
+            "name": "json", 
+            "required": true, 
+            "type": "String"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "---", 
+        "tags": [
+          "imported test suite"
+        ]
+      }, 
+      "put": {
+        "parameters": [
+          {
+            "allowMultiple": false, 
+            "description": "Object UUID to return", 
+            "in": "path", 
+            "name": "uuid", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "allowMultiple": false, 
+            "description": "JSON containing fields to update", 
+            "in": "body", 
+            "name": "json", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "---", 
+        "tags": [
+          "endpoint"
+        ]
+      }
+    }, 
+    "/api/v1/test_suit/{uuid}/{relation}/{relation_id}": {
+      "delete": {
+        "parameters": [
+          {
+            "allowMultiple": false, 
+            "description": "Object UUID to delete", 
+            "in": "path", 
+            "name": "uuid", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "---", 
+        "tags": [
+          "endpoint"
+        ]
+      }, 
+      "get": {
+        "description": "Returns TestSuite available in system<br/>", 
+        "parameters": [
+          {
+            "allowMultiple": false, 
+            "description": "Object UUID to return", 
+            "in": "path", 
+            "name": "uuid", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "Get TestSuite by ID", 
+        "tags": [
+          "endpoint"
+        ]
+      }, 
+      "post": {
+        "parameters": [
+          {
+            "allowMultiple": false, 
+            "description": "Object UUID to return", 
+            "in": "path", 
+            "name": "uuid", 
+            "required": true, 
+            "type": "String"
+          }, 
+          {
+            "allowMultiple": false, 
+            "description": "UUID of relation to add in object", 
+            "in": "path", 
+            "name": "relation_uuid", 
+            "required": true, 
+            "type": "String"
+          }, 
+          {
+            "allowMultiple": false, 
+            "description": "Name of relation to add in object", 
+            "in": "path", 
+            "name": "relation", 
+            "required": false, 
+            "type": "Integer"
+          }, 
+          {
+            "allowMultiple": false, 
+            "description": "JSON containing fields to update", 
+            "in": "body", 
+            "name": "json", 
+            "required": true, 
+            "type": "String"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "---", 
+        "tags": [
+          "imported test suite"
+        ]
+      }, 
+      "put": {
+        "parameters": [
+          {
+            "allowMultiple": false, 
+            "description": "Object UUID to return", 
+            "in": "path", 
+            "name": "uuid", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "allowMultiple": false, 
+            "description": "JSON containing fields to update", 
+            "in": "body", 
+            "name": "json", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "---", 
+        "tags": [
+          "endpoint"
+        ]
+      }
+    }, 
+    "/api/v1/test_suits": {
+      "get": {
+        "description": "Returns list of available Test Suites.<br/>", 
+        "parameters": [
+          {
+            "allowMultiple": true, 
+            "description": "Name of the model's field to filter by", 
+            "in": "query", 
+            "name": "filter", 
+            "required": false, 
+            "type": "String"
+          }, 
+          {
+            "allowMultiple": true, 
+            "description": "Value of the filter field to look for", 
+            "in": "query", 
+            "name": "filter_value", 
+            "required": false, 
+            "type": "String"
+          }, 
+          {
+            "allowMultiple": false, 
+            "description": "Direction of sorting object in result json", 
+            "in": "query", 
+            "name": "sort_dir", 
+            "required": false, 
+            "type": "asc or desc"
+          }, 
+          {
+            "allowMultiple": false, 
+            "description": "Page number if paging is enabled", 
+            "in": "query", 
+            "name": "page", 
+            "required": false, 
+            "type": "Integer"
+          }, 
+          {
+            "allowMultiple": false, 
+            "description": "Number of results to return with one request", 
+            "in": "query", 
+            "name": "page_size", 
+            "required": false, 
+            "type": "String"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "Get Test Suites", 
+        "tags": [
+          "imported test suite"
+        ]
+      }, 
+      "post": {
+        "description": "Create a new TestSuite in System. Once created, user can add testcase by calling<br/>another API.<br/>", 
+        "parameters": [
+          {
+            "allowMultiple": false, 
+            "description": "Object UUID to return", 
+            "in": "path", 
+            "name": "uuid", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "allowMultiple": false, 
+            "description": "JSON containing fields to update", 
+            "in": "body", 
+            "name": "json", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "Create TestSuites", 
+        "tags": [
+          "endpoint"
+        ]
+      }
+    }, 
+    "/api/v1/user/{uuid}": {
+      "delete": {
+        "parameters": [
+          {
+            "allowMultiple": false, 
+            "description": "Object UUID to return", 
+            "in": "path", 
+            "name": "uuid", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "---", 
+        "tags": [
+          "endpoint"
+        ]
+      }, 
+      "get": {
+        "parameters": [
+          {
+            "allowMultiple": false, 
+            "description": "Object UUID to return", 
+            "in": "path", 
+            "name": "uuid", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "allowMultiple": false, 
+            "description": "JSON containing fields to update", 
+            "in": "body", 
+            "name": "json", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "---", 
+        "tags": [
+          "endpoint"
+        ]
+      }, 
+      "put": {
+        "parameters": [
+          {
+            "allowMultiple": false, 
+            "description": "Object UUID to return", 
+            "in": "path", 
+            "name": "uuid", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "allowMultiple": false, 
+            "description": "JSON containing fields to update", 
+            "in": "body", 
+            "name": "json", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "---", 
+        "tags": [
+          "endpoint"
+        ]
+      }
+    }, 
+    "/api/v1/user/{uuid}/{relation}": {
+      "delete": {
+        "parameters": [
+          {
+            "allowMultiple": false, 
+            "description": "Object UUID to return", 
+            "in": "path", 
+            "name": "uuid", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "---", 
+        "tags": [
+          "endpoint"
+        ]
+      }, 
+      "get": {
+        "parameters": [
+          {
+            "allowMultiple": false, 
+            "description": "Object UUID to return", 
+            "in": "path", 
+            "name": "uuid", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "allowMultiple": false, 
+            "description": "JSON containing fields to update", 
+            "in": "body", 
+            "name": "json", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "---", 
+        "tags": [
+          "endpoint"
+        ]
+      }, 
+      "put": {
+        "parameters": [
+          {
+            "allowMultiple": false, 
+            "description": "Object UUID to return", 
+            "in": "path", 
+            "name": "uuid", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "allowMultiple": false, 
+            "description": "JSON containing fields to update", 
+            "in": "body", 
+            "name": "json", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "---", 
+        "tags": [
+          "endpoint"
+        ]
+      }
+    }, 
+    "/api/v1/user/{uuid}/{relation}/{relation_id}": {
+      "delete": {
+        "parameters": [
+          {
+            "allowMultiple": false, 
+            "description": "Object UUID to return", 
+            "in": "path", 
+            "name": "uuid", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "---", 
+        "tags": [
+          "endpoint"
+        ]
+      }, 
+      "get": {
+        "parameters": [
+          {
+            "allowMultiple": false, 
+            "description": "Object UUID to return", 
+            "in": "path", 
+            "name": "uuid", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "allowMultiple": false, 
+            "description": "JSON containing fields to update", 
+            "in": "body", 
+            "name": "json", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "---", 
+        "tags": [
+          "endpoint"
+        ]
+      }, 
+      "put": {
+        "parameters": [
+          {
+            "allowMultiple": false, 
+            "description": "Object UUID to return", 
+            "in": "path", 
+            "name": "uuid", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "allowMultiple": false, 
+            "description": "JSON containing fields to update", 
+            "in": "body", 
+            "name": "json", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "---", 
+        "tags": [
+          "endpoint"
+        ]
+      }
+    }, 
+    "/api/v1/users": {
+      "get": {
+        "parameters": [
+          {
+            "allowMultiple": true, 
+            "description": "Name of the model's field to filter by", 
+            "in": "query", 
+            "name": "filter", 
+            "required": false, 
+            "type": "String"
+          }, 
+          {
+            "allowMultiple": true, 
+            "description": "Value of the filter field to look for", 
+            "in": "query", 
+            "name": "filter_value", 
+            "required": false, 
+            "type": "String"
+          }, 
+          {
+            "allowMultiple": false, 
+            "description": "Direction of sorting object in result json", 
+            "in": "query", 
+            "name": "sort_dir", 
+            "required": false, 
+            "type": "asc or desc"
+          }, 
+          {
+            "allowMultiple": false, 
+            "description": "Page number if paging is enabled", 
+            "in": "query", 
+            "name": "page", 
+            "required": false, 
+            "type": "Integer"
+          }, 
+          {
+            "allowMultiple": false, 
+            "description": "Number of results to return with one request", 
+            "in": "query", 
+            "name": "page_size", 
+            "required": false, 
+            "type": "String"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "---", 
+        "tags": [
+          "imported test suite"
+        ]
+      }, 
+      "post": {
+        "parameters": [
+          {
+            "allowMultiple": false, 
+            "description": "Object UUID to return", 
+            "in": "path", 
+            "name": "uuid", 
+            "required": true, 
+            "type": "string"
+          }, 
+          {
+            "allowMultiple": false, 
+            "description": "JSON containing fields to update", 
+            "in": "body", 
+            "name": "json", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "---", 
+        "tags": [
+          "endpoint"
+        ]
+      }
+    }, 
+    "/api/v1/workflow/{workflow_id}": {
+      "get": {
+        "parameters": [
+          {
+            "allowMultiple": false, 
+            "description": "workflow uuid", 
+            "in": "path", 
+            "name": "workflow_id", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "---", 
+        "tags": [
+          "endpoint"
+        ]
+      }
+    }, 
+    "/api/v1/workflow/{workflow_id}/{serial_no}": {
+      "get": {
+        "parameters": [
+          {
+            "allowMultiple": false, 
+            "description": "workflow uuid", 
+            "in": "path", 
+            "name": "workflow_id", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "Object successfully returned"
+          }, 
+          "401": {
+            "description": "User isn't allowed to access this object"
+          }, 
+          "403": {
+            "description": "User token isn't provided or expired"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "---", 
+        "tags": [
+          "endpoint"
+        ]
+      }
+    }, 
+    "/cth/executeTest": {
+      "post": {
+        "description": "To queue a test suite for execution<br/>  ", 
+        "parameters": [
+          {
+            "allowMultiple": "False,", 
+            "dataType": "ExecutePostRequest.__name__,", 
+            "description": "execute body,", 
+            "in": "body", 
+            "name": "body,", 
+            "paramType": "body", 
+            "required": "True,", 
+            "type": "String,"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "OK", 
+            "schema": {
+              "$ref": "#/definitions/rec_username"
+            }
+          }, 
+          "400": {
+            "description": "Bad Request"
+          }, 
+          "401": {
+            "description": "Unauthorized"
+          }, 
+          "403": {
+            "description": "Forbidden"
+          }, 
+          "405": {
+            "description": "Method Not Allowed"
+          }, 
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }, 
+        "security": [
+          {
+            "APIKeyHeader": []
+          }
+        ], 
+        "summary": "Execute Test Suite", 
+        "tags": [
+          "avop"
+        ]
+      }
+    }, 
+    "/cth/getTestEnvironmentAttributes": {
+      "get": {
+        "description": "First line is the summary<br/>All following lines until the hyphens is added to description<br/>the format of the first lines until 3 hyphens will be not yaml compliant<br/>but everything below the 3 hyphens should be.<br/>", 
+        "parameters": [
+          {
+            "in": "path", 
+            "name": "username", 
+            "required": true, 
+            "type": "string"
+          }
+        ], 
+        "responses": {
+          "200": {
+            "description": "A single user item", 
+            "schema": {
+              "$ref": "#/definitions/rec_username"
+            }
+          }
+        }, 
+        "summary": "This is the summary defined in yaml file", 
+        "tags": [
+          "users"
+        ]
+      }
+    }
+  }, 
+  "schemes": [
+    "http"
+  ], 
+  "securityDefinitions": {
+    "APIKeyHeader": {
+      "in": "header", 
+      "name": "token", 
+      "type": "apiKey"
+    }
+  }, 
+  "swagger": "2.0"
+}

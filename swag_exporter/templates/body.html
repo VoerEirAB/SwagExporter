@@ -1,15 +1,18 @@
 <body>
-    <div class="cover-headings">
+    <div class="cover-headings centerAlign">
         <h1>Introduction</h1>
         {{ info.title }}
         {{ info.description }}
     </div>
     <div class="page-break"></div>
-    <div>
-    <div class="cover-headings">
-        <h1>Index</h1>
-    </div>
-        <h2>1. Security</h2>
+    <div class="index">
+    <table class="table-bg" style="border: 1px solid">
+        <tr>
+        <td><div class="cover-headings">
+            <h1>Index</h1>
+            </div>
+
+            <h2><a href="#security">1. Security</a></h2>
         <div class="div-container-margin">
                 <table>
                 {% for key, value in securityDefinitions.iteritems() %}
@@ -40,12 +43,16 @@
                 </li>
             </ul>
         {% endfor %}
+            </td>
+        </tr>
         <div class="page-break"></div>
+        </table>
     </div>
+    <hr>
     <div class="page-break"></div>
-    <h2>1.Security</h2>
+    <h2 id="security">1.Security</h2>
     <div class="div-container-margin">
-        <table class='table-margin'>
+        <table class='table-margin table-bg"'>
             <tr>
                 <td colspan='2'>
                     <h3>1.1. APIKeyHeader (header)</h3>

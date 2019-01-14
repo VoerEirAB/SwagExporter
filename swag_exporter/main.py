@@ -86,8 +86,8 @@ def main():
 
     args = parser.parse_args()
 
-    if not os.path.exists(args.spec) or os.path.exists(args.output):
-        error = '{0} File Not Found'.format(args.spec)
+    if not os.path.exists(args.spec) or not os.path.exists(args.output):
+        error = '{0} or {1} Path  Not Exists'.format(args.spec, args.output)
         print(error, file=sys.stderr)
 
     with open(args.spec, 'r') as file:

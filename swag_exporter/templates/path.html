@@ -1,4 +1,4 @@
-<h2><a name="path" >2. Paths </a></h2>
+<h2 id="path">2. Paths </h2>
     <div class="container">
         {% for url, path in paths.iteritems() %}
          {% set outer_loop_index = loop.index %}
@@ -7,11 +7,11 @@
                 <a name="{{ key }}_{{ outer_loop_index }}_{{ loop.index }}">
                     <div class=" get">
                         <code class="uppercase">
-                            <span>2.{{ outer_loop_index }}.{{ loop.index }} {{ key }} </span>&nbsp;&nbsp;{{ url }}
+                            <h3><strong>2.{{ outer_loop_index }}.{{ loop.index }} {{ key }} </strong></h3>&nbsp;&nbsp;{{ url }}
                         </code>
                     </div>
                 </a>
-                <table class='table-margin'>
+                <table class='table-margin table-bg"'>
                     <tr>
                         <td class='width-small'><b>Summary</b></td>
                         <td class='width-large'>{{ value.summary }}</td>
@@ -33,7 +33,7 @@
                         <td class='width-small'><b>Parameters</b></td>
                         <td class='width-large margin-padding-clear-left'>
                             {% if value.parameters|length > 0 %}
-                                <table class='table-margin'>
+                                <table class='table-margin table-bg'>
                                     <tr>
                                         <td class='width-small'><b>Name</b></td>
                                         <td class='width-large'><b>Description</b></td>
@@ -57,10 +57,11 @@
                         <td class='width-large'>{% for tag in value.tags %} {{ tag }} {% endfor %}</td>
                     </tr>
                     {% endif %}
+                    {% if 'responses' in value %}
                     <tr>
                         <td class='width-small'><b>Responses</b></td>
                         <td class='width-large'>
-                            <table class='table-margin'>
+                            <table class='table-margin table-bg'>
                                 <tr>
                                     <td class='width-small'><b>Code</b></td>
                                     <td class='width-large'><b>Description</b></td>
@@ -74,6 +75,7 @@
                             </table>
                         </td>
                     </tr>
+                    {% endif %}
                 </table>
             </div>
             {% endfor %}
