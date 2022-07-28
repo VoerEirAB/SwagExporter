@@ -18,7 +18,6 @@
 ################################################################
 
 from setuptools import setup, find_packages
-import os
 
 with open('requirements.txt') as f:
     required = f.read().splitlines()
@@ -28,15 +27,15 @@ setup(
     name='swag_export',
     version='0.0.1',
     packages=find_packages(),
-    url='http://voereir.com',
+    url='https://voereir.com',
     author='VoerEir AB',
     author_email='info@voereir.com',
     description='Swag Exporter for exporting swagger spec json as html to pdf',
     install_requires=required,
     include_package_data=True,
     entry_points={
-        'console_scripts' : [
-             'VoerEir_Engines = swag.main:main'
-         ]
+        'console_scripts': [
+            'VoerEir_Engines = swag.main:main'
+        ]
     }
 )
