@@ -1,0 +1,23 @@
+{
+  "name": "swag_export",
+  "version": "0.0.1",
+  "license": "Apache License, Version 2.0",
+  "exclude_folders": [],
+  "url": "https://voereir.com",
+  "author": "VoerEir AB",
+  "author_email": "info@voereir.com",
+  "long_description": "Swag Exporter for exporting swagger spec JSON as HTML to PDF.",
+  "description": "Swag Exporter for exporting swagger spec JSON as HTML to PDF.",
+  "classifiers": [
+    "Programming Language :: Python :: 3.7",
+    "License :: OSI Approved :: Apache Software License"
+  ],
+  "platforms": ["any"],
+  "python_requires": ">=3.7.4",
+  "entry_points": {
+   "console_scripts": [
+      "swagger_export = swag.main:main"
+   ]
+  },
+  "package_data": {}
+}
